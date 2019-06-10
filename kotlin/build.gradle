@@ -1,6 +1,6 @@
 apply plugin: 'com.android.library'
-apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
 apply plugin: 'com.github.dcendents.android-maven'
 apply plugin: 'com.jfrog.bintray'
 apply plugin: 'org.jetbrains.dokka'
@@ -42,7 +42,7 @@ def siteUrl = 'https://github.com/Gushenge/Atools.git' //可选 如果有的话
 def gitUrl = 'https://github.com/Gushenge/Atools.git' //可选 如果有的话
 
 group = "com.gushenge.atools"  //路径
-version = "0.0.1.release" //版本名称， 不要用beta，否则容易审核不通过
+version = "0.0.3" //版本名称， 不要用beta，否则容易审核不通过
 //以上两个配合项目目录名最终上传上去引用就是   compile 'com.share:tools:0.0.2.release'
 
 task sourcesJar(type: Jar) {

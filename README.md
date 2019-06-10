@@ -2,9 +2,9 @@
 
 - ### 分为两个版本
 #### kotlin
-        implementation 'com.gushenge.atools:kotlin:0.0.1.release'
+        implementation 'com.gushenge.atools:kotlin:0.0.3'
 #### java
-        implementation 'com.gushenge.atools:java:0.0.1.release'
+        implementation 'com.gushenge.atools:java:0.0.3'
         
 
 - ### 具体功能
