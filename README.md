@@ -7,19 +7,8 @@
         implementation 'com.gushenge.atools:java:0.0.3'
         
 
-- ### 具体功能
 
-#### 1. AutoHeightImage
-这是一个可以宽度自定义，高度自适应的图片控件
-##### 使用方法
-xml文件中使用
-
-           <com.gushenge.atools.AutoHeightImage
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"/>
-
-
-
+- ### [具体功能](https://github.com/Gushenge/Atools/wiki)
 - 附：
 所有已知仓库路径
         
