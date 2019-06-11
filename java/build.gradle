@@ -11,7 +11,7 @@ android {
 
 
     defaultConfig {
-        minSdkVersion 23
+        minSdkVersion 19
         targetSdkVersion 29
         versionCode 1
         versionName "1.0"
@@ -30,7 +30,7 @@ android {
 }
 
 dependencies {
-    compileOnly 'androidx.appcompat:appcompat:1.0.2'
+    compileOnly 'androidx.appcompat:appcompat:1.1.0-beta01'
 }
 
 def siteUrl = 'https://github.com/Gushenge/Atools.git' //可选 如果有的话
@@ -38,7 +38,7 @@ def siteUrl = 'https://github.com/Gushenge/Atools.git' //可选 如果有的话
 def gitUrl = 'https://github.com/Gushenge/Atools.git' //可选 如果有的话
 
 group = "com.gushenge.atools"  //路径
-version = "0.0.3" //版本名称， 不要用beta，否则容易审核不通过
+version = "0.0.4" //版本名称， 不要用beta，否则容易审核不通过
 //以上两个配合项目目录名最终上传上去引用就是   compile 'com.share:tools:0.0.2.release'
 
 task sourcesJar(type: Jar) {

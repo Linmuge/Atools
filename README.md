@@ -6,7 +6,10 @@
 #### java
         implementation 'com.gushenge.atools:java:0.0.3'
         
-
+- ### 说明
+    APP的targetSdkVersion应大于23
+    两个仓库的targetSdkVersion都为29
+     
 
 - ### [具体功能](https://github.com/Gushenge/Atools/wiki)
 - 附：
