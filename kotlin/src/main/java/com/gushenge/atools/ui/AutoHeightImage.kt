@@ -2,9 +2,7 @@ package com.gushenge.atools.ui
 
 import android.content.Context
 import android.util.AttributeSet
-import android.view.ViewManager
 import androidx.appcompat.widget.AppCompatImageView
-import org.jetbrains.anko.custom.ankoView
 
 class AutoHeightImage : AppCompatImageView {
     constructor(context: Context) : super(context) {}

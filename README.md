@@ -1,10 +1,10 @@
 ## Android实用工具合集-ATools
 
 - ### 分为两个版本
-     kotlin    
-        implementation 'com.gushenge.atools:kotlin:0.0.4  
+     kotlin  
+        `implementation 'com.gushenge.atools:kotlin:0.0.5 `  
      java  
-        implementation 'com.gushenge.atools:java:0.0.4'
+        `implementation 'com.gushenge.atools:java:0.0.5'`
         
 - ### 说明
     APP的targetSdkVersion应大于23  

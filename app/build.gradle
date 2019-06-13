@@ -6,7 +6,7 @@ android {
     compileSdkVersion 29
     buildToolsVersion "29.0.0"
     defaultConfig {
-        applicationId "com.gushenge.atools"
+        applicationId "com.gushenge.atools.demo"
         minSdkVersion 19
         targetSdkVersion 29
         versionCode 1
@@ -22,9 +22,11 @@ android {
 }
 
 dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation"org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
     implementation 'androidx.appcompat:appcompat:1.1.0-beta01'
     implementation 'androidx.core:core-ktx:1.2.0-alpha01'
-    implementation project(path: ':java')
+    implementation project(path: ':kotlin')
+
+    implementation "org.jetbrains.anko:anko:0.10.8"
+    implementation 'com.github.bumptech.glide:glide:4.9.0'
 }
