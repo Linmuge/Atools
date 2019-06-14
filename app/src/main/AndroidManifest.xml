@@ -10,6 +10,12 @@
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
+        <activity android:name=".activity.AboutActivity">
+        </activity>
+        <activity android:name=".activity.ui.ArcButtonActivity">
+        </activity>
+        <activity android:name=".activity.util.DateUtilsActivity">
+        </activity>
         <activity android:name=".activity.UtilsActivity">
         </activity>
         <activity android:name=".activity.UiActivity">
@@ -21,7 +27,7 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name=".activity.AutoHeightImageActivity">
+        <activity android:name=".activity.ui.AutoHeightImageActivity">
         </activity>
     </application>
 

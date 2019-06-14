@@ -2,9 +2,9 @@
 
 - ### 分为两个版本
      kotlin  
-        `implementation 'com.gushenge.atools:kotlin:0.0.5 `  
+        `implementation 'com.gushenge.atools:kotlin:0.0.6 `  
      java  
-        `implementation 'com.gushenge.atools:java:0.0.5'`
+        `implementation 'com.gushenge.atools:java:0.0.6'`
         
 - ### 说明
     APP的targetSdkVersion应大于23  
@@ -17,4 +17,4 @@
         
 	    url = https://github.com/Gushenge/Atools.git
 	    url = https://git.dev.tencent.com/Gushenge/Atools.git
-	    url = https://gitee.com/gzyyu/Atools.git
+	    url = https://gitee.com/Gushenge/Atools.git

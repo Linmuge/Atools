@@ -38,8 +38,8 @@ def siteUrl = 'https://github.com/Gushenge/Atools.git' //可选 如果有的话
 def gitUrl = 'https://github.com/Gushenge/Atools.git' //可选 如果有的话
 
 group = "com.gushenge.atools"  //路径
-version = "0.0.5" //版本名称， 不要用beta，否则容易审核不通过
-//以上两个配合项目目录名最终上传上去引用就是   compile 'com.share:tools:0.0.2.release'
+version = "0.0.6" //版本名称， 不要用beta，否则容易审核不通过
+//以上两个配合项目目录名最终上传上去引用就是
 
 task sourcesJar(type: Jar) {
     from android.sourceSets.main.java.srcDirs

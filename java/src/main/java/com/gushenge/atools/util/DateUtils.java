@@ -19,7 +19,7 @@ public class DateUtils {
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         Date date = simpleDateFormat.parse(s);
         long ts = date != null ? date.getTime() : 0;
-        res = String.valueOf(ts);
+        res = String.valueOf(ts/1000);
         return res;
     }
 }

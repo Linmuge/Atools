@@ -45,6 +45,19 @@ class MainActivity : BaseActivity() {
                 weight = 1.toFloat()
                 margin = dip(1)
             }
+            button("关于"){
+                val color = RandomUtils.color()
+                textColor = if (ViewUtils.isLightColor(color))Color.BLACK else Color.WHITE
+                allCaps = false
+                backgroundColor = color
+                textSize = sp(9).toFloat()
+                onClick { startActivity<AboutActivity>()}
+            }.lparams(
+                width = matchParent,
+                height = wrapContent){
+                weight = 1.toFloat()
+                margin = dip(1)
+            }
 
         }
     }

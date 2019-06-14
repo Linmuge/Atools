@@ -26,7 +26,8 @@ object DateUtils {
         val simpleDateFormat = SimpleDateFormat("yyyy-MM-dd HH:mm:ss")
         val date = simpleDateFormat.parse(s)
         val ts = date!!.time
-        res = ts.toString()
+        val stamp = ts/1000
+        res = stamp.toString()
         return res
     }
 }
