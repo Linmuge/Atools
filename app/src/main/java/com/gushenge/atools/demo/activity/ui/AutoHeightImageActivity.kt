@@ -29,7 +29,7 @@ class AutoHeightImageActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         verticalLayout {
-            titlebar("AutoHeightImageView", View.VISIBLE).init(viewManager = this,activity = this@AutoHeightImageActivity)
+            titlebar("AutoHeightImageView").init(viewManager = this,activity = this@AutoHeightImageActivity)
             scrollView {
                 verticalLayout(){
                     edit = editText(){

@@ -15,18 +15,19 @@ import org.jetbrains.anko.sdk27.coroutines.onClick
 
 class ArcButtonActivity : AppCompatActivity() {
 
+    var radius:Int = 0
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         verticalLayout {
-            titlebar("ArcButton",View.VISIBLE).init(viewManager = this ,activity = this@ArcButtonActivity)
+            titlebar("ArcButton").init(viewManager = this ,activity = this@ArcButtonActivity)
             val button = arcButton {
                 val color = RandomUtils.color()
                 textColor = if (ViewUtils.isLightColor(color)) Color.BLACK else Color.WHITE
                 backgroundColor = color
                 setRadius(0)
-                text = "点我查看高度"
-                onClick { toast(height.toString()) }
+                text = "点我查看圆角半径"
+                onClick { toast(radius.toString()) }
             }.lparams(width = matchParent,height = dip(45)){
                 margin = dip(5)
             }
@@ -36,6 +37,7 @@ class ArcButtonActivity : AppCompatActivity() {
                 setOnSeekBarChangeListener(object :SeekBar.OnSeekBarChangeListener{
                     override fun onProgressChanged(p0: SeekBar?, p1: Int, p2: Boolean) {
                         button.setRadius(p1)
+                        radius = p1
                     }
 
                     override fun onStartTrackingTouch(p0: SeekBar?) {

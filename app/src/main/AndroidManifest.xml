@@ -2,7 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
           package="com.gushenge.atools.demo">
 
+    <uses-permission android:name="android.permission.INTERNET"/>
     <application
+            android:name=".activity.App"
             android:allowBackup="true"
             android:icon="@mipmap/ic_launcher"
             android:label="@string/app_name"
@@ -10,6 +12,12 @@
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
+        <activity android:name=".activity.util.PreferenceUtilsActivity">
+        </activity>
+        <activity android:name=".activity.util.ViewUtilsActivity">
+        </activity>
+        <activity android:name=".activity.util.RandomUtilsActivity">
+        </activity>
         <activity android:name=".activity.AboutActivity">
         </activity>
         <activity android:name=".activity.ui.ArcButtonActivity">

@@ -19,7 +19,7 @@ class UiActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         verticalLayout {
-            titlebar("UI演示", View.VISIBLE).init(viewManager = this,activity = this@UiActivity)
+            titlebar("UI演示").init(viewManager = this,activity = this@UiActivity)
             arcButton {
                 text = "宽度固定高度自适应的ImageView - AutoHeightImage"
                 val color = RandomUtils.color()

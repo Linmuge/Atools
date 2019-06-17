@@ -22,4 +22,15 @@ public class DateUtils {
         res = String.valueOf(ts/1000);
         return res;
     }
+    public String getDate(){
+        // HH:mm:ss
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        //获取当前时间
+        Date date = new Date(System.currentTimeMillis());
+        return simpleDateFormat.format(date);
+    }
+    public String getStamp(){
+        long timeStamp = System.currentTimeMillis();
+        return String.valueOf(timeStamp).substring(0,10);
+    }
 }

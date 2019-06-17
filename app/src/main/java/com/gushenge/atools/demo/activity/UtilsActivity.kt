@@ -5,6 +5,9 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import com.gushenge.atools.demo.activity.util.DateUtilsActivity
+import com.gushenge.atools.demo.activity.util.PreferenceUtilsActivity
+import com.gushenge.atools.demo.activity.util.RandomUtilsActivity
+import com.gushenge.atools.demo.activity.util.ViewUtilsActivity
 import com.gushenge.atools.demo.ui.titlebar
 import com.gushenge.atools.ui.arcButton
 import com.gushenge.atools.util.RandomUtils
@@ -22,7 +25,7 @@ class UtilsActivity : AppCompatActivity() {
     private fun initView() {
         verticalLayout {
 
-            titlebar("Utils演示",View.VISIBLE).init(viewManager = this,activity = this@UtilsActivity)
+            titlebar("Utils演示").init(viewManager = this,activity = this@UtilsActivity)
             scrollView {
                 verticalLayout {
                     arcButton {
@@ -33,6 +36,39 @@ class UtilsActivity : AppCompatActivity() {
                         backgroundColor = color
                         textSize = sp(6).toFloat()
                         onClick { startActivity<DateUtilsActivity>() }
+                    }.lparams(width = matchParent,height = dip(40)){
+                        margin = dip(5)
+                    }
+                    arcButton {
+                        text = "随机工具类 - RandomUtils"
+                        val color = RandomUtils.color()
+                        textColor = if (ViewUtils.isLightColor(color)) Color.BLACK else Color.WHITE
+                        allCaps = false
+                        backgroundColor = color
+                        textSize = sp(6).toFloat()
+                        onClick { startActivity<RandomUtilsActivity>() }
+                    }.lparams(width = matchParent,height = dip(40)){
+                        margin = dip(5)
+                    }
+                    arcButton {
+                        text = "视图工具类 - ViewUtils"
+                        val color = RandomUtils.color()
+                        textColor = if (ViewUtils.isLightColor(color)) Color.BLACK else Color.WHITE
+                        allCaps = false
+                        backgroundColor = color
+                        textSize = sp(6).toFloat()
+                        onClick { startActivity<ViewUtilsActivity>() }
+                    }.lparams(width = matchParent,height = dip(40)){
+                        margin = dip(5)
+                    }
+                    arcButton {
+                        text = "SharedPreferences工具类 - PreferenceUtils"
+                        val color = RandomUtils.color()
+                        textColor = if (ViewUtils.isLightColor(color)) Color.BLACK else Color.WHITE
+                        allCaps = false
+                        backgroundColor = color
+                        textSize = sp(6).toFloat()
+                        onClick { startActivity<PreferenceUtilsActivity>() }
                     }.lparams(width = matchParent,height = dip(40)){
                         margin = dip(5)
                     }

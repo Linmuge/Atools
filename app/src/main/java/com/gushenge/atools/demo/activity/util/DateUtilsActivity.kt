@@ -14,11 +14,14 @@ import com.gushenge.atools.util.RandomUtils
 import com.gushenge.atools.util.ViewUtils
 import org.jetbrains.anko.*
 import org.jetbrains.anko.sdk27.coroutines.onClick
+import java.lang.NumberFormatException
+import java.text.ParseException
 
 class DateUtilsActivity : AppCompatActivity() {
 
 
     lateinit var time:EditText
+    lateinit var stamp:EditText
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         initView()
@@ -26,7 +29,7 @@ class DateUtilsActivity : AppCompatActivity() {
 
     private fun initView() {
         verticalLayout {
-            titlebar("DateUtils演示", View.VISIBLE).init(viewManager = this,activity = this@DateUtilsActivity)
+            titlebar("DateUtils演示").init(viewManager = this,activity = this@DateUtilsActivity)
             linearLayout {
 
                 textView("时间戳"){
@@ -59,7 +62,7 @@ class DateUtilsActivity : AppCompatActivity() {
             }
 
             linearLayout {
-                val stamp = editText {
+                stamp = editText {
                     hint = "时间戳"
                     gravity = Gravity.CENTER
                     inputType = InputType.TYPE_CLASS_NUMBER
@@ -72,10 +75,22 @@ class DateUtilsActivity : AppCompatActivity() {
                 arcButton {
                     text = "转换"
                     onClick {
-                        if (stamp.text.isNotEmpty()){
-                            time.setText(DateUtils.stampToDate(stamp.text.trim().toString().toInt()))
+                        if(stamp.text.isNotEmpty()&&time.text.isNotEmpty()){
+                            time.setText(DateUtils.getDate())
+                            stamp.setText(DateUtils.getStamp())
                         }else{
-                            stamp.setText(DateUtils.dateToStamp(time.text.trim().toString()))
+                            if (stamp.text.isNotEmpty()){
+                                time.setText(DateUtils.stampToDate(stamp.text.trim().toString().toInt()))
+                            }else if (time.text.isNotEmpty()){
+                                try {
+                                    stamp.setText(DateUtils.dateToStamp(time.text.trim().toString()))
+                                }catch (e:ParseException){
+                                    toast("时间格式不对")
+                                }
+                            }else{
+                                time.setText(DateUtils.getDate())
+                                stamp.setText(DateUtils.getStamp())
+                            }
                         }
                     }
                 }.lparams{
@@ -95,6 +110,76 @@ class DateUtilsActivity : AppCompatActivity() {
 
                 width = matchParent
                 height = dip(100)
+            }
+            arcButton {
+                val color = RandomUtils.color()
+                textColor = if (ViewUtils.isLightColor(color)) Color.BLACK else Color.WHITE
+                backgroundColor = color
+                allCaps = false
+                textSize = sp(6).toFloat()
+                text = "stampToDate()-时间戳转换为日期"
+                onClick {
+                    if(stamp.text.isNotEmpty()){
+                        time.setText(DateUtils.stampToDate(stamp.text.toString().toInt()))
+                    }else{
+                        toast("时间戳为空")
+                    }
+                }
+            }.lparams{
+                width = matchParent
+                height = dip(45)
+                margin = dip(5)
+            }
+            arcButton {
+                val color = RandomUtils.color()
+                textColor = if (ViewUtils.isLightColor(color)) Color.BLACK else Color.WHITE
+                backgroundColor = color
+                allCaps = false
+                textSize = sp(6).toFloat()
+                text = "dateToStamp()-日期转换为时间戳"
+                onClick {
+                    if(time.text.isNotEmpty()){
+                        stamp.setText(
+                            DateUtils.dateToStamp(time.text.toString()))
+                    }else{
+                        toast("日期为空")
+                    }
+                }
+            }.lparams{
+                width = matchParent
+                height = dip(45)
+                margin = dip(5)
+            }
+            arcButton {
+                val color = RandomUtils.color()
+                textColor = if (ViewUtils.isLightColor(color)) Color.BLACK else Color.WHITE
+                backgroundColor = color
+                allCaps = false
+                textSize = sp(6).toFloat()
+                text = "getDate()-获取当前日期"
+                onClick {
+                   time.setText(DateUtils.getDate())
+
+                }
+            }.lparams{
+                width = matchParent
+                height = dip(45)
+                margin = dip(5)
+            }
+            arcButton {
+                val color = RandomUtils.color()
+                textColor = if (ViewUtils.isLightColor(color)) Color.BLACK else Color.WHITE
+                backgroundColor = color
+                allCaps = false
+                textSize = sp(6).toFloat()
+                text = "getStamp()-获取当前时间戳"
+                onClick {
+                    stamp.setText(DateUtils.getStamp())
+                }
+            }.lparams{
+                width = matchParent
+                height = dip(45)
+                margin = dip(5)
             }
 
         }
