@@ -1,9 +1,8 @@
-package com.gushenge.sgrl.Util
+package com.gushenge.atools.util
 
 import android.app.Application
 import android.content.Context
 import android.content.SharedPreferences
-import android.util.Log.e
 import kotlin.reflect.KProperty
 
 
@@ -13,8 +12,8 @@ class PreferenceUtils<T>(var name: String, var default: T) {
         lateinit var context: Application
         lateinit var spName: String
         fun init(context: Application,spName: String){
-            this.context = context
-            this.spName = spName
+            Companion.context = context
+            Companion.spName = spName
         }
     }
     val prefs: SharedPreferences by lazy { context.getSharedPreferences(spName, Context.MODE_PRIVATE) }
@@ -35,7 +34,6 @@ class PreferenceUtils<T>(var name: String, var default: T) {
     }
 
     private fun getSharedPreferences(name:String, default: T): T = with(prefs) {
-        e("text1111",prefs.toString())
         val res: Any = when(default) {
             is Int -> getInt(name, default)
             is Float -> getFloat(name, default)

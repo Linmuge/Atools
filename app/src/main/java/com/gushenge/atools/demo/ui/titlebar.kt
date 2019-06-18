@@ -14,7 +14,7 @@ import org.jetbrains.anko.sdk27.coroutines.onClick
 class titlebar{
 
     lateinit var titleT:TextView
-    lateinit var root :RelativeLayout
+    public lateinit var root :RelativeLayout
     lateinit var title :String
     lateinit var close:RelativeLayout
     var vis :Int = 0

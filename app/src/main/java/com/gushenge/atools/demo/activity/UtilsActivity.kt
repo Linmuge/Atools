@@ -3,6 +3,7 @@ package com.gushenge.atools.demo.activity
 import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.Gravity
 import android.view.View
 import com.gushenge.atools.demo.activity.util.DateUtilsActivity
 import com.gushenge.atools.demo.activity.util.PreferenceUtilsActivity
@@ -60,6 +61,11 @@ class UtilsActivity : AppCompatActivity() {
                         onClick { startActivity<ViewUtilsActivity>() }
                     }.lparams(width = matchParent,height = dip(40)){
                         margin = dip(5)
+                    }
+                    textView("以下仅适用于kotlin"){
+                        gravity = Gravity.CENTER
+                    }.lparams(width = matchParent,height = dip(45)){
+
                     }
                     arcButton {
                         text = "SharedPreferences工具类 - PreferenceUtils"

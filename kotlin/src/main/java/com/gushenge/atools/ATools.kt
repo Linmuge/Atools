@@ -1,8 +1,7 @@
 package com.gushenge.atools
 
 import android.app.Application
-import android.content.Context
-import com.gushenge.sgrl.Util.PreferenceUtils
+import com.gushenge.atools.util.PreferenceUtils
 
 object ATools {
 

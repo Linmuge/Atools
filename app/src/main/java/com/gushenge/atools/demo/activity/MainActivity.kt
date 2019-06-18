@@ -6,7 +6,7 @@ import android.view.View
 import com.gushenge.atools.demo.ui.titlebar
 import com.gushenge.atools.util.RandomUtils
 import com.gushenge.atools.util.ViewUtils
-import com.gushenge.sgrl.Util.PreferenceUtils
+import com.gushenge.atools.util.PreferenceUtils
 import org.jetbrains.anko.*
 import org.jetbrains.anko.sdk27.coroutines.onClick
 

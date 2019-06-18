@@ -9,6 +9,7 @@
     
 注: last-release为最后一个版本，具体请查看 [README.md](https://github.com/Gushenge/Atools/blob/master/README.md)
 ### 说明
+##### 项目仅适用于AndroidX，并没有做support适配
 ##### App的targetSdkVersion应大于或等于23
 ###### 如果需要使用Ui类，项目必须包含
     implementation 'androidx.appcompat:appcompat:last-release'
