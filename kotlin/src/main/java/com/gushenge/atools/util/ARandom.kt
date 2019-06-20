@@ -3,7 +3,7 @@ package com.gushenge.atools.util
 import android.graphics.Color
 import java.util.*
 
-class RandomUtils {
+class ARandom {
     companion object{
 
         /**

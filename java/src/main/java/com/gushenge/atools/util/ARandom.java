@@ -4,7 +4,7 @@ import android.graphics.Color;
 
 import java.util.Random;
 
-public class RandomUtils {
+public class ARandom {
 
 
     /**

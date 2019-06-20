@@ -1,19 +1,18 @@
 package com.gushenge.atools.demo.activity.ui
 
 import android.graphics.Color
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Html
-import android.view.View
 import android.widget.SeekBar
+import com.gushenge.atools.demo.activity.BaseActivity
 import com.gushenge.atools.demo.ui.titlebar
 import com.gushenge.atools.ui.arcButton
-import com.gushenge.atools.util.RandomUtils
-import com.gushenge.atools.util.ViewUtils
+import com.gushenge.atools.util.ARandom
+import com.gushenge.atools.util.AView
 import org.jetbrains.anko.*
 import org.jetbrains.anko.sdk27.coroutines.onClick
 
-class ArcButtonActivity : AppCompatActivity() {
+class ArcButtonActivity : BaseActivity() {
 
     var radius:Int = 0
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -22,8 +21,8 @@ class ArcButtonActivity : AppCompatActivity() {
         verticalLayout {
             titlebar("ArcButton").init(viewManager = this ,activity = this@ArcButtonActivity)
             val button = arcButton {
-                val color = RandomUtils.color()
-                textColor = if (ViewUtils.isLightColor(color)) Color.BLACK else Color.WHITE
+                val color = ARandom.color()
+                textColor = if (AView.isLightColor(color)) Color.BLACK else Color.WHITE
                 backgroundColor = color
                 setRadius(0)
                 text = "点我查看圆角半径"

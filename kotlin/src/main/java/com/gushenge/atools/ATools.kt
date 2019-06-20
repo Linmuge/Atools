@@ -1,7 +1,7 @@
 package com.gushenge.atools
 
 import android.app.Application
-import com.gushenge.atools.util.PreferenceUtils
+import com.gushenge.atools.util.APreference
 
 object ATools {
 
@@ -11,6 +11,6 @@ object ATools {
         return this
     }
     fun preference(spName:String){
-        PreferenceUtils.init(context,spName)
+        APreference.init(context,spName)
     }
 }

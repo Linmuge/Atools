@@ -7,7 +7,7 @@ import kotlin.reflect.KProperty
 
 
 
-class PreferenceUtils<T>(var name: String, var default: T) {
+class APreference<T>(var name: String, var default: T) {
     companion object{
         lateinit var context: Application
         lateinit var spName: String

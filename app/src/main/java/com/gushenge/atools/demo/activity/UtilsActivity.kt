@@ -1,22 +1,17 @@
 package com.gushenge.atools.demo.activity
 
 import android.graphics.Color
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Gravity
-import android.view.View
-import com.gushenge.atools.demo.activity.util.DateUtilsActivity
-import com.gushenge.atools.demo.activity.util.PreferenceUtilsActivity
-import com.gushenge.atools.demo.activity.util.RandomUtilsActivity
-import com.gushenge.atools.demo.activity.util.ViewUtilsActivity
+import com.gushenge.atools.demo.activity.util.*
 import com.gushenge.atools.demo.ui.titlebar
 import com.gushenge.atools.ui.arcButton
-import com.gushenge.atools.util.RandomUtils
-import com.gushenge.atools.util.ViewUtils
+import com.gushenge.atools.util.ARandom
+import com.gushenge.atools.util.AView
 import org.jetbrains.anko.*
 import org.jetbrains.anko.sdk27.coroutines.onClick
 
-class UtilsActivity : AppCompatActivity() {
+class UtilsActivity : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,35 +25,57 @@ class UtilsActivity : AppCompatActivity() {
             scrollView {
                 verticalLayout {
                     arcButton {
-                        text = "时间日期工具类 - DateUtils"
-                        val color = RandomUtils.color()
-                        textColor = if (ViewUtils.isLightColor(color)) Color.BLACK else Color.WHITE
+                        text = "时间日期工具类 - ADate"
+                        val color = ARandom.color()
+                        textColor = if (AView.isLightColor(color)) Color.BLACK else Color.WHITE
                         allCaps = false
                         backgroundColor = color
                         textSize = sp(6).toFloat()
-                        onClick { startActivity<DateUtilsActivity>() }
+                        onClick { startActivity<ADateActivity>() }
                     }.lparams(width = matchParent,height = dip(40)){
                         margin = dip(5)
                     }
                     arcButton {
-                        text = "随机工具类 - RandomUtils"
-                        val color = RandomUtils.color()
-                        textColor = if (ViewUtils.isLightColor(color)) Color.BLACK else Color.WHITE
+                        text = "随机工具类 - ARandom"
+                        val color = ARandom.color()
+                        textColor = if (AView.isLightColor(color)) Color.BLACK else Color.WHITE
                         allCaps = false
                         backgroundColor = color
                         textSize = sp(6).toFloat()
-                        onClick { startActivity<RandomUtilsActivity>() }
+                        onClick { startActivity<ARandomActivity>() }
                     }.lparams(width = matchParent,height = dip(40)){
                         margin = dip(5)
                     }
                     arcButton {
-                        text = "视图工具类 - ViewUtils"
-                        val color = RandomUtils.color()
-                        textColor = if (ViewUtils.isLightColor(color)) Color.BLACK else Color.WHITE
+                        text = "视图工具类 - AView"
+                        val color = ARandom.color()
+                        textColor = if (AView.isLightColor(color)) Color.BLACK else Color.WHITE
                         allCaps = false
                         backgroundColor = color
                         textSize = sp(6).toFloat()
-                        onClick { startActivity<ViewUtilsActivity>() }
+                        onClick { startActivity<AViewActivity>() }
+                    }.lparams(width = matchParent,height = dip(40)){
+                        margin = dip(5)
+                    }
+                    arcButton {
+                        text = "系统工具类 - ASystem"
+                        val color = ARandom.color()
+                        textColor = if (AView.isLightColor(color)) Color.BLACK else Color.WHITE
+                        allCaps = false
+                        backgroundColor = color
+                        textSize = sp(6).toFloat()
+                        onClick { startActivity<ASystemActivity>() }
+                    }.lparams(width = matchParent,height = dip(40)){
+                        margin = dip(5)
+                    }
+                    arcButton {
+                        text = "Log工具类 - ALog"
+                        val color = ARandom.color()
+                        textColor = if (AView.isLightColor(color)) Color.BLACK else Color.WHITE
+                        allCaps = false
+                        backgroundColor = color
+                        textSize = sp(6).toFloat()
+                        onClick { startActivity<ALogActivity>() }
                     }.lparams(width = matchParent,height = dip(40)){
                         margin = dip(5)
                     }
@@ -68,13 +85,13 @@ class UtilsActivity : AppCompatActivity() {
 
                     }
                     arcButton {
-                        text = "SharedPreferences工具类 - PreferenceUtils"
-                        val color = RandomUtils.color()
-                        textColor = if (ViewUtils.isLightColor(color)) Color.BLACK else Color.WHITE
+                        text = "SharedPreferences工具类 - APreference"
+                        val color = ARandom.color()
+                        textColor = if (AView.isLightColor(color)) Color.BLACK else Color.WHITE
                         allCaps = false
                         backgroundColor = color
                         textSize = sp(6).toFloat()
-                        onClick { startActivity<PreferenceUtilsActivity>() }
+                        onClick { startActivity<APreferenceActivity>() }
                     }.lparams(width = matchParent,height = dip(40)){
                         margin = dip(5)
                     }

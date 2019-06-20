@@ -1,12 +1,17 @@
 package com.gushenge.atools.demo.activity
 
 import android.os.Bundle
-import android.os.PersistableBundle
 import androidx.appcompat.app.AppCompatActivity
+import com.gushenge.atools.demo.activity.dao.GlobalKeys
+import com.gushenge.atools.util.APreference
+import com.gushenge.atools.util.ARandom
+import com.gushenge.atools.util.AView
 
 open class BaseActivity :AppCompatActivity(){
-    override fun onCreate(savedInstanceState: Bundle?, persistentState: PersistableBundle?) {
-        super.onCreate(savedInstanceState, persistentState)
-
+    var color by APreference(GlobalKeys.StatusBarColor,1)
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        color = ARandom.color()
+        AView.setStatusBar(this@BaseActivity ,AView.isLightColor(color))
     }
 }

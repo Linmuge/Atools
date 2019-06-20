@@ -4,7 +4,7 @@ import java.text.ParseException
 import java.text.SimpleDateFormat
 import java.util.Date
 
-object DateUtils {
+object ADate {
     /*
      * 将时间戳转换为时间
      */

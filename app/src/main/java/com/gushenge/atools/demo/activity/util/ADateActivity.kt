@@ -1,23 +1,21 @@
 package com.gushenge.atools.demo.activity.util
 
 import android.graphics.Color
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.InputType
 import android.view.Gravity
-import android.view.View
 import android.widget.EditText
+import com.gushenge.atools.demo.activity.BaseActivity
 import com.gushenge.atools.demo.ui.titlebar
 import com.gushenge.atools.ui.arcButton
-import com.gushenge.atools.util.DateUtils
-import com.gushenge.atools.util.RandomUtils
-import com.gushenge.atools.util.ViewUtils
+import com.gushenge.atools.util.ADate
+import com.gushenge.atools.util.ARandom
+import com.gushenge.atools.util.AView
 import org.jetbrains.anko.*
 import org.jetbrains.anko.sdk27.coroutines.onClick
-import java.lang.NumberFormatException
 import java.text.ParseException
 
-class DateUtilsActivity : AppCompatActivity() {
+class ADateActivity : BaseActivity() {
 
 
     lateinit var time:EditText
@@ -29,7 +27,7 @@ class DateUtilsActivity : AppCompatActivity() {
 
     private fun initView() {
         verticalLayout {
-            titlebar("DateUtils演示").init(viewManager = this,activity = this@DateUtilsActivity)
+            titlebar("ADate演示").init(viewManager = this,activity = this@ADateActivity)
             linearLayout {
 
                 textView("时间戳"){
@@ -76,20 +74,20 @@ class DateUtilsActivity : AppCompatActivity() {
                     text = "转换"
                     onClick {
                         if(stamp.text.isNotEmpty()&&time.text.isNotEmpty()){
-                            time.setText(DateUtils.getDate())
-                            stamp.setText(DateUtils.getStamp())
+                            time.setText(ADate.getDate())
+                            stamp.setText(ADate.getStamp())
                         }else{
                             if (stamp.text.isNotEmpty()){
-                                time.setText(DateUtils.stampToDate(stamp.text.trim().toString().toInt()))
+                                time.setText(ADate.stampToDate(stamp.text.trim().toString().toInt()))
                             }else if (time.text.isNotEmpty()){
                                 try {
-                                    stamp.setText(DateUtils.dateToStamp(time.text.trim().toString()))
+                                    stamp.setText(ADate.dateToStamp(time.text.trim().toString()))
                                 }catch (e:ParseException){
                                     toast("时间格式不对")
                                 }
                             }else{
-                                time.setText(DateUtils.getDate())
-                                stamp.setText(DateUtils.getStamp())
+                                time.setText(ADate.getDate())
+                                stamp.setText(ADate.getStamp())
                             }
                         }
                     }
@@ -112,15 +110,15 @@ class DateUtilsActivity : AppCompatActivity() {
                 height = dip(100)
             }
             arcButton {
-                val color = RandomUtils.color()
-                textColor = if (ViewUtils.isLightColor(color)) Color.BLACK else Color.WHITE
+                val color = ARandom.color()
+                textColor = if (AView.isLightColor(color)) Color.BLACK else Color.WHITE
                 backgroundColor = color
                 allCaps = false
                 textSize = sp(6).toFloat()
                 text = "stampToDate()-时间戳转换为日期"
                 onClick {
                     if(stamp.text.isNotEmpty()){
-                        time.setText(DateUtils.stampToDate(stamp.text.toString().toInt()))
+                        time.setText(ADate.stampToDate(stamp.text.toString().toInt()))
                     }else{
                         toast("时间戳为空")
                     }
@@ -131,8 +129,8 @@ class DateUtilsActivity : AppCompatActivity() {
                 margin = dip(5)
             }
             arcButton {
-                val color = RandomUtils.color()
-                textColor = if (ViewUtils.isLightColor(color)) Color.BLACK else Color.WHITE
+                val color = ARandom.color()
+                textColor = if (AView.isLightColor(color)) Color.BLACK else Color.WHITE
                 backgroundColor = color
                 allCaps = false
                 textSize = sp(6).toFloat()
@@ -140,7 +138,7 @@ class DateUtilsActivity : AppCompatActivity() {
                 onClick {
                     if(time.text.isNotEmpty()){
                         stamp.setText(
-                            DateUtils.dateToStamp(time.text.toString()))
+                            ADate.dateToStamp(time.text.toString()))
                     }else{
                         toast("日期为空")
                     }
@@ -151,14 +149,14 @@ class DateUtilsActivity : AppCompatActivity() {
                 margin = dip(5)
             }
             arcButton {
-                val color = RandomUtils.color()
-                textColor = if (ViewUtils.isLightColor(color)) Color.BLACK else Color.WHITE
+                val color = ARandom.color()
+                textColor = if (AView.isLightColor(color)) Color.BLACK else Color.WHITE
                 backgroundColor = color
                 allCaps = false
                 textSize = sp(6).toFloat()
                 text = "getDate()-获取当前日期"
                 onClick {
-                   time.setText(DateUtils.getDate())
+                   time.setText(ADate.getDate())
 
                 }
             }.lparams{
@@ -167,14 +165,14 @@ class DateUtilsActivity : AppCompatActivity() {
                 margin = dip(5)
             }
             arcButton {
-                val color = RandomUtils.color()
-                textColor = if (ViewUtils.isLightColor(color)) Color.BLACK else Color.WHITE
+                val color = ARandom.color()
+                textColor = if (AView.isLightColor(color)) Color.BLACK else Color.WHITE
                 backgroundColor = color
                 allCaps = false
                 textSize = sp(6).toFloat()
                 text = "getStamp()-获取当前时间戳"
                 onClick {
-                    stamp.setText(DateUtils.getStamp())
+                    stamp.setText(ADate.getStamp())
                 }
             }.lparams{
                 width = matchParent

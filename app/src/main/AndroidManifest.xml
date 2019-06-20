@@ -3,6 +3,7 @@
           package="com.gushenge.atools.demo">
 
     <uses-permission android:name="android.permission.INTERNET"/>
+
     <application
             android:name=".activity.App"
             android:allowBackup="true"
@@ -12,17 +13,21 @@
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
-        <activity android:name=".activity.util.PreferenceUtilsActivity">
+        <activity android:name=".activity.util.ALogActivity">
         </activity>
-        <activity android:name=".activity.util.ViewUtilsActivity">
+        <activity android:name=".activity.util.ASystemActivity">
         </activity>
-        <activity android:name=".activity.util.RandomUtilsActivity">
+        <activity android:name=".activity.util.APreferenceActivity">
+        </activity>
+        <activity android:name=".activity.util.AViewActivity">
+        </activity>
+        <activity android:name=".activity.util.ARandomActivity">
         </activity>
         <activity android:name=".activity.AboutActivity">
         </activity>
         <activity android:name=".activity.ui.ArcButtonActivity">
         </activity>
-        <activity android:name=".activity.util.DateUtilsActivity">
+        <activity android:name=".activity.util.ADateActivity">
         </activity>
         <activity android:name=".activity.UtilsActivity">
         </activity>

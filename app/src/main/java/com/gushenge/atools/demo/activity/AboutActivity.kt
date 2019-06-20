@@ -1,18 +1,16 @@
 package com.gushenge.atools.demo.activity
 
 import android.graphics.Color
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.text.Html
 import android.view.View
 import com.gushenge.atools.demo.ui.titlebar
 import com.gushenge.atools.ui.arcButton
-import com.gushenge.atools.util.RandomUtils
-import com.gushenge.atools.util.ViewUtils
+import com.gushenge.atools.util.ARandom
+import com.gushenge.atools.util.AView
 import org.jetbrains.anko.*
 import org.jetbrains.anko.sdk27.coroutines.onClick
 
-class AboutActivity : AppCompatActivity() {
+class AboutActivity : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -20,8 +18,8 @@ class AboutActivity : AppCompatActivity() {
         verticalLayout {
             titlebar("关于", View.VISIBLE).init(viewManager = this,activity = this@AboutActivity)
             arcButton {
-                val color = RandomUtils.color()
-                textColor = if(ViewUtils.isLightColor(color))Color.BLACK else Color.WHITE
+                val color = ARandom.color()
+                textColor = if(AView.isLightColor(color))Color.BLACK else Color.WHITE
                 backgroundColor = color
                 text = "Github"
                 allCaps = false
@@ -32,8 +30,8 @@ class AboutActivity : AppCompatActivity() {
                 margin = dip(5)
             }
             arcButton {
-                val color = RandomUtils.color()
-                textColor = if(ViewUtils.isLightColor(color))Color.BLACK else Color.WHITE
+                val color = ARandom.color()
+                textColor = if(AView.isLightColor(color))Color.BLACK else Color.WHITE
                 backgroundColor = color
                 text = "码云"
                 allCaps = false
@@ -44,8 +42,8 @@ class AboutActivity : AppCompatActivity() {
                 margin = dip(5)
             }
             arcButton {
-                val color = RandomUtils.color()
-                textColor = if(ViewUtils.isLightColor(color))Color.BLACK else Color.WHITE
+                val color = ARandom.color()
+                textColor = if(AView.isLightColor(color))Color.BLACK else Color.WHITE
                 backgroundColor = color
                 text = "Coding"
                 allCaps = false
@@ -56,8 +54,8 @@ class AboutActivity : AppCompatActivity() {
                 margin = dip(5)
             }
             arcButton {
-                val color = RandomUtils.color()
-                textColor = if(ViewUtils.isLightColor(color))Color.BLACK else Color.WHITE
+                val color = ARandom.color()
+                textColor = if(AView.isLightColor(color))Color.BLACK else Color.WHITE
                 backgroundColor = color
                 text = "个人博客"
                 allCaps = false
