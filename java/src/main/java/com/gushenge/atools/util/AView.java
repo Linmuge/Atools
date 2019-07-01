@@ -52,7 +52,7 @@ public class AView {
      * Android 5.0 以上设置沉浸式状态栏
      * @param bgColorLight 状态栏背景是否是亮色
      */
-    public static void setStatusBar( Activity activity, Boolean bgColorLight)  {
+    public static void setStatusBar( Activity activity, Boolean bgColorLight,int NavigationBarColor)  {
         if (Build.VERSION.SDK_INT>=Build.VERSION_CODES.LOLLIPOP){
             Window window = activity.getWindow();
             View decorView = window.getDecorView();
@@ -65,7 +65,7 @@ public class AView {
             }
 
             window.setStatusBarColor(Color.TRANSPARENT);
-            window.setNavigationBarColor(Color.WHITE);
+            window.setNavigationBarColor(NavigationBarColor);
             window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
             window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
         }else {
@@ -75,7 +75,7 @@ public class AView {
 
     }
     public static void setStatusBar(Activity activity){
-        setStatusBar(activity,true);
+        setStatusBar(activity,true,Color.BLACK);
     }
 
     /**隐藏显示状态栏
