@@ -2,14 +2,13 @@ package com.gushenge.atools.demo.ui
 
 import android.app.Activity
 import android.graphics.Color
-import android.graphics.drawable.VectorDrawable
 import android.view.Gravity
 import android.view.View
 import android.view.ViewManager
 import android.widget.RelativeLayout
 import android.widget.TextView
 import com.gushenge.atools.demo.R
-import com.gushenge.atools.demo.activity.dao.GlobalKeys
+import com.gushenge.atools.demo.dao.GlobalKeys
 import com.gushenge.atools.util.APreference
 import com.gushenge.atools.util.AView
 import org.jetbrains.anko.*
@@ -50,7 +49,7 @@ class titlebar{
                     }.lparams(width = dip(45),height = dip(45))
                     titleT = textView(title){
                         textColor = if (AView.isLightColor(statusBarColor)) Color.BLACK else Color.WHITE
-                        textSize = sp(7).toFloat()
+                        textSize = 20f
                         gravity = Gravity.CENTER
 
                     }.lparams(height = dip(45)){

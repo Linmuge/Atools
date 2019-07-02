@@ -30,7 +30,6 @@ class UtilsActivity : BaseActivity() {
                         textColor = if (AView.isLightColor(color)) Color.BLACK else Color.WHITE
                         allCaps = false
                         backgroundColor = color
-                        textSize = sp(6).toFloat()
                         onClick { startActivity<ADateActivity>() }
                     }.lparams(width = matchParent,height = dip(40)){
                         margin = dip(5)
@@ -41,7 +40,6 @@ class UtilsActivity : BaseActivity() {
                         textColor = if (AView.isLightColor(color)) Color.BLACK else Color.WHITE
                         allCaps = false
                         backgroundColor = color
-                        textSize = sp(6).toFloat()
                         onClick { startActivity<ARandomActivity>() }
                     }.lparams(width = matchParent,height = dip(40)){
                         margin = dip(5)
@@ -52,7 +50,6 @@ class UtilsActivity : BaseActivity() {
                         textColor = if (AView.isLightColor(color)) Color.BLACK else Color.WHITE
                         allCaps = false
                         backgroundColor = color
-                        textSize = sp(6).toFloat()
                         onClick { startActivity<AViewActivity>() }
                     }.lparams(width = matchParent,height = dip(40)){
                         margin = dip(5)
@@ -63,7 +60,6 @@ class UtilsActivity : BaseActivity() {
                         textColor = if (AView.isLightColor(color)) Color.BLACK else Color.WHITE
                         allCaps = false
                         backgroundColor = color
-                        textSize = sp(6).toFloat()
                         onClick { startActivity<ASystemActivity>() }
                     }.lparams(width = matchParent,height = dip(40)){
                         margin = dip(5)
@@ -74,7 +70,6 @@ class UtilsActivity : BaseActivity() {
                         textColor = if (AView.isLightColor(color)) Color.BLACK else Color.WHITE
                         allCaps = false
                         backgroundColor = color
-                        textSize = sp(6).toFloat()
                         onClick { startActivity<ALogActivity>() }
                     }.lparams(width = matchParent,height = dip(40)){
                         margin = dip(5)
@@ -90,7 +85,6 @@ class UtilsActivity : BaseActivity() {
                         textColor = if (AView.isLightColor(color)) Color.BLACK else Color.WHITE
                         allCaps = false
                         backgroundColor = color
-                        textSize = sp(6).toFloat()
                         onClick { startActivity<APreferenceActivity>() }
                     }.lparams(width = matchParent,height = dip(40)){
                         margin = dip(5)

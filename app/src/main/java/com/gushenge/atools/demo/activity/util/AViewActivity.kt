@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.text.InputType
 import android.view.Gravity
 import android.widget.EditText
+import com.gushenge.atools.demo.R
 import com.gushenge.atools.demo.activity.BaseActivity
 import com.gushenge.atools.demo.ui.titlebar
 import com.gushenge.atools.ui.arcButton
@@ -128,7 +129,7 @@ class AViewActivity : BaseActivity() {
                         backgroundColor = color
                         textSize = sp(6).toFloat()
                         onClick {
-                            AView.setStatusBar(this@AViewActivity,true)
+                            AView.setStatusBar(this@AViewActivity,true, R.color.colorPrimary)
                         }
                     }.lparams(width = matchParent, height = dip(45)) {
                         margin=dip(5)
@@ -142,7 +143,7 @@ class AViewActivity : BaseActivity() {
                         backgroundColor = color
                         textSize = sp(6).toFloat()
                         onClick {
-                            AView.setStatusBar(this@AViewActivity,false)
+                            AView.setStatusBar(this@AViewActivity,false, R.color.colorPrimary)
                         }
                     }.lparams(width = matchParent, height = dip(45)) {
                        margin = dip(5)

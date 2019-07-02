@@ -26,7 +26,7 @@ class MainActivity : BaseActivity() {
                 textColor = if (AView.isLightColor(color))Color.BLACK else Color.WHITE
                 allCaps = false
                 backgroundColor = color
-                textSize = sp(9).toFloat()
+                textSize = 18f
                 onClick { startActivity<UiActivity>() }
             }.lparams(
                 width = matchParent,
@@ -39,7 +39,7 @@ class MainActivity : BaseActivity() {
                 textColor = if (AView.isLightColor(color))Color.BLACK else Color.WHITE
                 allCaps = false
                 backgroundColor = color
-                textSize = sp(9).toFloat()
+                textSize = 18f
                 onClick { startActivity<UtilsActivity>() }
             }.lparams(
                 width = matchParent,
@@ -52,7 +52,7 @@ class MainActivity : BaseActivity() {
                 textColor = if (AView.isLightColor(color))Color.BLACK else Color.WHITE
                 allCaps = false
                 backgroundColor = color
-                textSize = sp(9).toFloat()
+                textSize = 18f
                 onClick { startActivity<AboutActivity>()}
             }.lparams(
                 width = matchParent,

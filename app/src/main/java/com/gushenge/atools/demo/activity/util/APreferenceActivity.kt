@@ -55,56 +55,56 @@ class APreferenceActivity : BaseActivity() {
 
 
                 textView("初始化"){
-                    textSize = sp(7).toFloat()
+                    textSize = 17f
                     textColor = ARandom.color()
                     gravity = Gravity.CENTER
                 }.lparams(width = matchParent,height = dip(30)){
                     margin = dip(5)
                 }
                 textView("Atools.init(context:Application).preference(spName:String)"){
-                    textSize = sp(5).toFloat()
+                    textSize = 14f
                     gravity = Gravity.CENTER
                     textColor = Color.BLACK
                 }.lparams(width = matchParent,height = dip(30)){
                     margin = dip(5)
                 }
                 textView("使用"){
-                    textSize = sp(7).toFloat()
+                    textSize = 17f
                     textColor = ARandom.color()
                     gravity = Gravity.CENTER
                 }.lparams(width = matchParent,height = dip(30)){
                     margin = dip(5)
                 }
                 textView("var test by APreference(\"test\",T)"){
-                    textSize = sp(5).toFloat()
+                    textSize = 14f
                     gravity = Gravity.CENTER
                     textColor = Color.BLACK
                 }.lparams(width = matchParent,height = dip(30)){
                     margin = dip(5)
                 }
                 textView("存值"){
-                    textSize = sp(7).toFloat()
+                    textSize = 17f
                     textColor = ARandom.color()
                     gravity = Gravity.CENTER
                 }.lparams(width = matchParent,height = dip(30)){
                     margin = dip(5)
                 }
                 textView("test=1 or test=\"1\" or test=true"){
-                    textSize = sp(5).toFloat()
+                    textSize = 14f
                     gravity = Gravity.CENTER
                     textColor = Color.BLACK
                 }.lparams(width = matchParent,height = dip(30)){
                     margin = dip(5)
                 }
                 textView("取值"){
-                    textSize = sp(7).toFloat()
+                    textSize = 17f
                     textColor = ARandom.color()
                     gravity = Gravity.CENTER
                 }.lparams(width = matchParent,height = dip(30)){
                     margin = dip(5)
                 }
                 textView("exsample: textview.text = test"){
-                    textSize = sp(5).toFloat()
+                    textSize = 14f
                     gravity = Gravity.CENTER
                     textColor = Color.BLACK
                 }.lparams(width = matchParent,height = dip(30)){

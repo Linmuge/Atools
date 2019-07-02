@@ -23,7 +23,6 @@ class ASystemActivity : BaseActivity() {
                 textColor = if (AView.isLightColor(color)) Color.BLACK else Color.WHITE
                 backgroundColor = color
                 allCaps = false
-                textSize = sp(6).toFloat()
                 onClick {
                     val code = ASystem.getAppVersionCode(this@ASystemActivity)
                     toast("当前APP VersionCode为$code ")

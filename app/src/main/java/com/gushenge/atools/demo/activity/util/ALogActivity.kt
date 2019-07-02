@@ -45,7 +45,6 @@ class ALogActivity : BaseActivity() {
                 textColor = if (AView.isLightColor(color)) Color.BLACK else Color.WHITE
                 backgroundColor = color
                 allCaps = false
-                textSize = sp(6).toFloat()
                 onClick {
                     toast("请去logcat面板查看")
                     ALog.d(tag1.text.toString(),message.text.toString())
@@ -58,7 +57,6 @@ class ALogActivity : BaseActivity() {
                 textColor = if (AView.isLightColor(color)) Color.BLACK else Color.WHITE
                 backgroundColor = color
                 allCaps = false
-                textSize = sp(6).toFloat()
                 onClick {
                     toast("请去logcat面板查看")
                     ALog.e(tag1.text.toString(),message.text.toString())
@@ -71,7 +69,6 @@ class ALogActivity : BaseActivity() {
                 textColor = if (AView.isLightColor(color)) Color.BLACK else Color.WHITE
                 backgroundColor = color
                 allCaps = false
-                textSize = sp(6).toFloat()
                 onClick {
                     toast("请去logcat面板查看")
                     ALog.w(tag1.text.toString(),message.text.toString())
@@ -84,7 +81,6 @@ class ALogActivity : BaseActivity() {
                 textColor = if (AView.isLightColor(color)) Color.BLACK else Color.WHITE
                 backgroundColor = color
                 allCaps = false
-                textSize = sp(6).toFloat()
                 onClick {
                     toast("请去logcat面板查看")
                     ALog.i(tag1.text.toString(),message.text.toString())
@@ -97,7 +93,6 @@ class ALogActivity : BaseActivity() {
                 textColor = if (AView.isLightColor(color)) Color.BLACK else Color.WHITE
                 backgroundColor = color
                 allCaps = false
-                textSize = sp(6).toFloat()
                 onClick {
                     toast("请去logcat面板查看")
                     ALog.v(tag1.text.toString(),message.text.toString())

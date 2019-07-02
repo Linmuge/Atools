@@ -114,7 +114,6 @@ class ADateActivity : BaseActivity() {
                 textColor = if (AView.isLightColor(color)) Color.BLACK else Color.WHITE
                 backgroundColor = color
                 allCaps = false
-                textSize = sp(6).toFloat()
                 text = "stampToDate()-时间戳转换为日期"
                 onClick {
                     if(stamp.text.isNotEmpty()){
@@ -133,7 +132,6 @@ class ADateActivity : BaseActivity() {
                 textColor = if (AView.isLightColor(color)) Color.BLACK else Color.WHITE
                 backgroundColor = color
                 allCaps = false
-                textSize = sp(6).toFloat()
                 text = "dateToStamp()-日期转换为时间戳"
                 onClick {
                     if(time.text.isNotEmpty()){
@@ -153,7 +151,6 @@ class ADateActivity : BaseActivity() {
                 textColor = if (AView.isLightColor(color)) Color.BLACK else Color.WHITE
                 backgroundColor = color
                 allCaps = false
-                textSize = sp(6).toFloat()
                 text = "getDate()-获取当前日期"
                 onClick {
                    time.setText(ADate.getDate())
@@ -169,7 +166,6 @@ class ADateActivity : BaseActivity() {
                 textColor = if (AView.isLightColor(color)) Color.BLACK else Color.WHITE
                 backgroundColor = color
                 allCaps = false
-                textSize = sp(6).toFloat()
                 text = "getStamp()-获取当前时间戳"
                 onClick {
                     stamp.setText(ADate.getStamp())

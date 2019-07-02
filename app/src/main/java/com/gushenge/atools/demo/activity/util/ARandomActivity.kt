@@ -23,7 +23,6 @@ class ARandomActivity : BaseActivity() {
                 textColor = if (AView.isLightColor(color)) Color.BLACK else Color.WHITE
                 backgroundColor = color
                 allCaps = false
-                textSize = sp(6).toFloat()
                 onClick {
                     color = ARandom.color()
                     textColor = if (AView.isLightColor(color)) Color.BLACK else Color.WHITE
