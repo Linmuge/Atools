@@ -26,7 +26,7 @@ android {
 }
 
 dependencies {
-    compileOnly 'androidx.appcompat:appcompat:1.1.0-beta01'
+    compileOnly 'androidx.appcompat:appcompat:1.1.0-rc01'
 }
 
 def siteUrl = 'https://github.com/Gushenge/Atools.git' //可选 如果有的话

@@ -17,5 +17,6 @@
 所有已知仓库路径
         
 	    url = https://github.com/Gushenge/Atools.git
+	    url = https://gitlab.com/Gushenge/Atools.git
 	    url = https://git.dev.tencent.com/Gushenge/Atools.git
 	    url = https://gitee.com/Gushenge/Atools.git
