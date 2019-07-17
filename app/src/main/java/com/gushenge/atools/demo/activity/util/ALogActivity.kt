@@ -1,9 +1,7 @@
 package com.gushenge.atools.demo.activity.util
 
 import android.graphics.Color
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.view.Gravity
 import android.widget.EditText
 import com.gushenge.atools.demo.activity.BaseActivity
@@ -11,7 +9,6 @@ import com.gushenge.atools.demo.ui.titlebar
 import com.gushenge.atools.ui.arcButton
 import com.gushenge.atools.util.ALog
 import com.gushenge.atools.util.ARandom
-import com.gushenge.atools.util.ASystem
 import com.gushenge.atools.util.AView
 import org.jetbrains.anko.*
 import org.jetbrains.anko.sdk27.coroutines.onClick
@@ -41,7 +38,7 @@ class ALogActivity : BaseActivity() {
                 margin = dip(5)
             }
             arcButton("ALog.d(TAG,Message)") {
-                var color = ARandom.color()
+                val color = ARandom.color()
                 textColor = if (AView.isLightColor(color)) Color.BLACK else Color.WHITE
                 backgroundColor = color
                 allCaps = false
@@ -53,7 +50,7 @@ class ALogActivity : BaseActivity() {
                 margin = dip(5)
             }
             arcButton("ALog.e(TAG,Message)") {
-                var color = ARandom.color()
+                val color = ARandom.color()
                 textColor = if (AView.isLightColor(color)) Color.BLACK else Color.WHITE
                 backgroundColor = color
                 allCaps = false
@@ -65,7 +62,7 @@ class ALogActivity : BaseActivity() {
                 margin = dip(5)
             }
             arcButton("ALog.w(TAG,Message)") {
-                var color = ARandom.color()
+                val color = ARandom.color()
                 textColor = if (AView.isLightColor(color)) Color.BLACK else Color.WHITE
                 backgroundColor = color
                 allCaps = false
@@ -77,7 +74,7 @@ class ALogActivity : BaseActivity() {
                 margin = dip(5)
             }
             arcButton("ALog.i(TAG,Message)") {
-                var color = ARandom.color()
+                val color = ARandom.color()
                 textColor = if (AView.isLightColor(color)) Color.BLACK else Color.WHITE
                 backgroundColor = color
                 allCaps = false
@@ -89,7 +86,7 @@ class ALogActivity : BaseActivity() {
                 margin = dip(5)
             }
             arcButton("ALog.v(TAG,Message)") {
-                var color = ARandom.color()
+                val color = ARandom.color()
                 textColor = if (AView.isLightColor(color)) Color.BLACK else Color.WHITE
                 backgroundColor = color
                 allCaps = false
