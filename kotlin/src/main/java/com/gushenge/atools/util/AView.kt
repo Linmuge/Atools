@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.view.WindowManager
 import androidx.annotation.ColorInt
+import androidx.annotation.RequiresApi
 import androidx.core.graphics.ColorUtils
 import com.gushenge.atools.dao.AKeys
 
@@ -73,17 +74,28 @@ class AView {
         * @param true 隐藏
          * @param false 显示*/
         fun hideStatusBar(context: Activity,enable: Boolean) {
+            val lp = context.window.attributes
             if (enable) {
-                val lp = context.getWindow().getAttributes()
                 lp.flags = lp.flags or WindowManager.LayoutParams.FLAG_FULLSCREEN
-                context.getWindow().setAttributes(lp)
-                context.getWindow().addFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS)
             } else {
-                val attr = context.getWindow().getAttributes()
-                attr.flags = attr.flags and WindowManager.LayoutParams.FLAG_FULLSCREEN.inv()
-                context.getWindow().setAttributes(attr)
-                context.getWindow().clearFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS)
+                lp.flags = lp.flags and WindowManager.LayoutParams.FLAG_FULLSCREEN.inv()
             }
+            context.window.attributes = lp
+        }
+        /*全屏*/
+        @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
+        fun fullScreen(context: Activity, enable: Boolean){
+
+            val windowManager = context.window
+            val lp = windowManager.attributes
+            lp.flags = lp.flags or WindowManager.LayoutParams.FLAG_FULLSCREEN
+            windowManager.attributes = lp
+
+            val decorView = windowManager.decorView
+            val option = View.SYSTEM_UI_FLAG_IMMERSIVE or
+                    View.SYSTEM_UI_FLAG_HIDE_NAVIGATION
+            decorView.systemUiVisibility = option
+            windowManager.statusBarColor = Color.TRANSPARENT
         }
     }
 }
