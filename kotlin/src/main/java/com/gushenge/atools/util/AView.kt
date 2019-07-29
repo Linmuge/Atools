@@ -84,7 +84,7 @@ class AView {
         }
         /*全屏*/
         @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
-        fun fullScreen(context: Activity, enable: Boolean){
+        fun fullScreen(context: Activity){
 
             val windowManager = context.window
             val lp = windowManager.attributes

@@ -10,6 +10,7 @@ import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
 import androidx.annotation.ColorInt;
+import androidx.annotation.RequiresApi;
 import androidx.core.graphics.ColorUtils;
 import com.gushenge.atools.dao.AKeys;
 
@@ -36,6 +37,7 @@ public class AView {
             return res.getDimensionPixelSize(resourceId);
         else
             return 0;
+
     }
     /*动态设置margin*/
     public static void setMargins(View v,int left,int top,int right,int bottom) {
@@ -79,8 +81,7 @@ public class AView {
     }
 
     /**隐藏显示状态栏
-     * @param true 隐藏
-     * @param false 显示*/
+     * @param enable 是否隐藏*/
     public static void hideStatusBar( Activity context, Boolean enable) {
         if (enable) {
             WindowManager.LayoutParams lp = context.getWindow().getAttributes();
@@ -93,5 +94,19 @@ public class AView {
             context.getWindow().setAttributes(attr);
             context.getWindow().clearFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
         }
+    }
+    /*全屏*/
+    @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
+    public static void fullScreen(Activity context){
+
+        Window windowManager = context.getWindow();
+        WindowManager.LayoutParams lp = windowManager.getAttributes();
+        lp.flags = lp.flags | WindowManager.LayoutParams.FLAG_FULLSCREEN;
+        windowManager.setAttributes(lp);
+
+        View decorView = windowManager.getDecorView();
+        decorView.setSystemUiVisibility(View.SYSTEM_UI_FLAG_IMMERSIVE |
+                View.SYSTEM_UI_FLAG_HIDE_NAVIGATION);
+        windowManager.setStatusBarColor(Color.TRANSPARENT);
     }
 }
