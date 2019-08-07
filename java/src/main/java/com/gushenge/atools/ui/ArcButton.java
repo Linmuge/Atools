@@ -8,6 +8,7 @@ import android.graphics.Color;
 import android.graphics.drawable.ShapeDrawable;
 import android.graphics.drawable.StateListDrawable;
 import android.graphics.drawable.shapes.RoundRectShape;
+import android.util.AttributeSet;
 import android.view.Gravity;
 import android.widget.Button;
 
@@ -32,14 +33,16 @@ public class ArcButton extends Button {
     private int			mTextNormalColor	= Color.BLACK;
     private int			mTextPressedColor	= Color.BLACK;
 
-    public ArcButton(Context context)
-    {
+    public ArcButton(Context context){
         super(context);
         initUI();
     }
+    public ArcButton(Context context, AttributeSet src){
+        super(context,src);
+        initUI();
+    }
 
-    private void initUI()
-    {
+    private void initUI(){
         setGravity(Gravity.CENTER);
         buildDraweableState();
         buildColorDrawableState();
@@ -48,8 +51,7 @@ public class ArcButton extends Button {
     /**
      * 构建图片drawble
      */
-    private void buildColorDrawableState()
-    {
+    private void buildColorDrawableState(){
         ColorStateList colorStateList = new ColorStateList(new int[][] { mPressState, mNormalState },
                 new int[] { mTextPressedColor, mTextNormalColor });
         setTextColor(colorStateList);
@@ -58,8 +60,7 @@ public class ArcButton extends Button {
     /**
      * 构建背景Drawble
      */
-    private void buildDraweableState()
-    {
+    private void buildDraweableState(){
 
         float outRectr[] = new float[] { mRadius, mRadius, mRadius, mRadius, mRadius, mRadius, mRadius, mRadius };
         //创建状态管理器
@@ -94,8 +95,7 @@ public class ArcButton extends Button {
      *
      * @param radius
      */
-    public void setRadius(int radius)
-    {
+    public void setRadius(int radius){
         this.mRadius = radius;
         buildDraweableState();
     }
@@ -106,8 +106,7 @@ public class ArcButton extends Button {
      * @param normalColor
      * @param prssedClor
      */
-    public void setBackgroundColor(int normalColor, int pressedColor)
-    {
+    public void setBackgroundColor(int normalColor, int pressedColor){
 
         mBgNormalColor = normalColor;
         mBgPressedColor = pressedColor;
@@ -121,8 +120,7 @@ public class ArcButton extends Button {
      * @param normalColor
      * @param pressedColor
      */
-    public void setTextColor(int normalColor, int pressedColor)
-    {
+    public void setTextColor(int normalColor, int pressedColor){
         mTextPressedColor = pressedColor;
         mTextNormalColor = normalColor;
         buildColorDrawableState();
@@ -146,8 +144,7 @@ public class ArcButton extends Button {
      *
      * @param color
      */
-    public void setTextColor(int color)
-    {
+    public void setTextColor(int color){
         mTextPressedColor = color;
         mTextNormalColor = color;
         buildColorDrawableState();

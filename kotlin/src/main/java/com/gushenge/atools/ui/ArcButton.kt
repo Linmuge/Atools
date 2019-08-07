@@ -6,16 +6,18 @@ import android.graphics.Color
 import android.graphics.drawable.ShapeDrawable
 import android.graphics.drawable.StateListDrawable
 import android.graphics.drawable.shapes.RoundRectShape
+import android.util.AttributeSet
 import android.view.Gravity
 import android.view.ViewManager
 import android.widget.Button
 import org.jetbrains.anko.custom.ankoView
 
 
-class ArcButton(context: Context) : Button(context) {
-    fun ViewManager.arcButton(init: ArcButton.() -> Unit): ArcButton {
-        return ankoView({ ArcButton(it) }, theme = 0, init = init)
-    }
+class ArcButton : Button {
+
+    constructor(context: Context):super(context)
+    constructor(context: Context,attributes: AttributeSet):super(context,attributes)
+
     //默认的圆角半径
     private var radius = 1000000000
 

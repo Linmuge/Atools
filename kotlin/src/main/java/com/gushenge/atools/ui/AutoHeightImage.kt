@@ -5,9 +5,9 @@ import android.util.AttributeSet
 import androidx.appcompat.widget.AppCompatImageView
 
 class AutoHeightImage : AppCompatImageView {
-    constructor(context: Context) : super(context) {}
+    constructor(context: Context) : super(context)
 
-    constructor(context: Context, attrs: AttributeSet) : super(context, attrs) {}
+    constructor(context: Context, attrs: AttributeSet) : super(context, attrs)
 
     override fun onMeasure(widthMeasureSpec: Int, heightMeasureSpec: Int) {
         val d = drawable
