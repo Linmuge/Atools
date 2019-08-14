@@ -79,6 +79,9 @@ public class AView {
     public static void setStatusBar(Activity activity){
         setStatusBar(activity,true,Color.BLACK);
     }
+    public static void setStatusBar(Activity activity,Boolean bgColorLight){
+        setStatusBar(activity,bgColorLight,Color.BLACK);
+    }
 
     /**隐藏显示状态栏
      * @param enable 是否隐藏*/

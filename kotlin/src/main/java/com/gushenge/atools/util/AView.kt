@@ -69,6 +69,9 @@ class AView {
         fun setStatusBar(activity: Activity){
             setStatusBar(activity,true,Color.BLACK)
         }
+        fun setStatusBar(activity: Activity,bgColorLight: Boolean){
+            setStatusBar(activity,bgColorLight,Color.BLACK)
+        }
 
         /**隐藏显示状态栏
         * @param true 隐藏
