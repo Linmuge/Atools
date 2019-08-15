@@ -65,7 +65,7 @@ class ASystem {
                 Log.e("emulatorCheck: ", "处理器平台不存在")
 
             }
-            if (Build.BRAND != "HUAWEI") {
+            if (!Build.BRAND.equals("HUAWEI")) {
                 //读渠道信息，针对一些基于vbox的模拟器
                 val buildFlavor = CommandUtil().getProperty("ro.build.flavor")
                 if ((buildFlavor == null) or ("" == buildFlavor) or (buildFlavor != null && buildFlavor!!.contains("vbox"))) {
