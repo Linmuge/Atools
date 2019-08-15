@@ -19,13 +19,24 @@ class ASystemActivity : BaseActivity() {
         verticalLayout {
             titlebar("ASystem").init(viewManager = this,activity = this@ASystemActivity)
             arcButton("getAppVersionCode()") {
-                var color = ARandom.color()
+                val color = ARandom.color()
                 textColor = if (AView.isLightColor(color)) Color.BLACK else Color.WHITE
                 backgroundColor = color
                 allCaps = false
                 onClick {
                     val code = ASystem.getAppVersionCode(this@ASystemActivity)
                     toast("当前APP VersionCode为$code ")
+                }
+            }.lparams(width = matchParent,height = dip(40)){
+                margin = dip(5)
+            }
+            arcButton("emulatorCheck()") {
+                val color = ARandom.color()
+                textColor = if (AView.isLightColor(color)) Color.BLACK else Color.WHITE
+                backgroundColor = color
+                allCaps = false
+                onClick {
+                    toast(if(ASystem.emulatorCheck(this@ASystemActivity)) "这是真机" else "这是模拟器")
                 }
             }.lparams(width = matchParent,height = dip(40)){
                 margin = dip(5)
