@@ -16,12 +16,11 @@ class ASystem {
         fun getAppVersionCode(context: Context) :Long {
             var versionCode: Long = 1
             val packageInfo = context.packageManager.getPackageInfo(context.packageName, 0)
-
             try {
-                if (Build.VERSION.SDK_INT>= Build.VERSION_CODES.P){
-                    versionCode = packageInfo.longVersionCode
+                versionCode = if (Build.VERSION.SDK_INT>= Build.VERSION_CODES.P){
+                    packageInfo.longVersionCode
                 }else {
-                    versionCode = packageInfo.versionCode.toLong()
+                    packageInfo.versionCode.toLong()
                 }
             }catch (e: PackageManager.NameNotFoundException){
                 Log.e(AKeys.TAG,"获取VersionCode出错")
