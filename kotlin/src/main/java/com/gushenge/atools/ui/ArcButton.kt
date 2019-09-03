@@ -87,7 +87,7 @@ class ArcButton : Button {
         normalDrawable.paint.color = mBgNormalColor
         drawable.addState(mNormalState, normalDrawable)
         //设置我们的背景，就是xml里面的selector
-        setBackground(drawable)
+        background = drawable
     }
 
     /**
