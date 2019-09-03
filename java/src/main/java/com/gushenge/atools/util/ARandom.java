@@ -6,13 +6,13 @@ import java.util.Random;
 
 public class ARandom {
 
-
     /**
-     *
-     * 随机颜色
-     *
-     **/
-    public static int getRandomColor(){
+     * @author Gushenge
+     * @version 0.0.7
+     * @return Int 颜色的rgb值
+     * @description 获取随机颜色
+     * */
+    public static int getColor(){
         Random random=new Random();
         int r=0;
         int g=0;

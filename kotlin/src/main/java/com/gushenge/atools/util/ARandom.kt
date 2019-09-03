@@ -7,9 +7,10 @@ class ARandom {
     companion object{
 
         /**
-         *
-         * 随机颜色
-         *
+         * @author Gushenge
+         * @version 0.0.7
+         * @return Int 颜色的rgb值
+         * @description 获取随机颜色
          * */
         fun color(): Int {
             val random = Random()
@@ -17,7 +18,6 @@ class ARandom {
             var g = 0
             var b = 0
             for (i in 0..1) {
-                //       result=result*10+random.nextInt(10);
                 var temp = random.nextInt(16)
                 r = r * 16 + temp
                 temp = random.nextInt(16)

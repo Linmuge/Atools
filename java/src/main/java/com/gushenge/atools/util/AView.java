@@ -19,17 +19,25 @@ import static android.view.WindowManager.LayoutParams.FLAG_FULLSCREEN;
 
 public class AView {
 
+
     /**
-     * 颜色是不是亮色
-     * @true 亮色
-     * @false 不是
-     *
-     **/
+     * @param color 当前颜色值,类型为Int
+     * @author Gushenge
+     * @version 0.0.8
+     * @return Boolean
+     * @description 判断当前颜色值是不是亮色 true为亮色 false为暗色
+     * */
     public static Boolean isLightColor(@ColorInt int color){
         return ColorUtils.calculateLuminance(color) >= 0.5;
     }
 
-    /*动态获取状态栏高度*/
+    /**
+     * @param context 当前Activity
+     * @author Gushenge
+     * @version 0.0.8
+     * @return Int
+     * @description 获取当前状态栏高度,返回值为px
+     * */
     public static int getStatusBarHeight(Activity context) {
         Resources res = context.getResources();
         int resourceId = res.getIdentifier("status_bar_height", "dimen", "android");
@@ -39,26 +47,40 @@ public class AView {
             return 0;
 
     }
-    /*动态设置margin*/
-    public static void setMargins(View v,int left,int top,int right,int bottom) {
-        if (v.getLayoutParams() instanceof ViewGroup.MarginLayoutParams) {
-            ViewGroup.MarginLayoutParams p =(ViewGroup.MarginLayoutParams) v.getLayoutParams();
-            p.setMargins(left, top, right, bottom);
-            v.setLayoutParams(p);
+    /**
+     * @param view 需要设置margin的view
+     * @param start 距左边的距离,单位为px
+     * @param top 距上边的距离,单位为px
+     * @param end 距右边的距离,单位为px
+     * @param bottom 距下边的距离,单位为px
+     * @author Gushenge
+     * @version 0.0.8
+     * @return @null
+     * @description 动态设置view的margin,值为int,单位为px
+     * */
+    public static void setMargins(View view,int start,int top,int end,int bottom) {
+        if (view.getLayoutParams() instanceof ViewGroup.MarginLayoutParams) {
+            ViewGroup.MarginLayoutParams p =(ViewGroup.MarginLayoutParams) view.getLayoutParams();
+            p.setMargins(start, top, end, bottom);
+            view.setLayoutParams(p);
         }
     }
 
 
 
     /**
-     * Android 5.0 以上设置沉浸式状态栏
-     * @param bgColorLight 状态栏背景是否是亮色
+     * @param context 当前Activity
+     * @param textColor 状态栏字体颜色是否为黑色 true为黑色 false为白色
+     * @param NavigationBarColor 虚拟键的背景颜色
+     * @author Gushenge
+     * @version 0.0.9
+     * @description 动态设置透明状态栏以及状态栏字体颜色
      */
-    public static void setStatusBar( Activity activity, Boolean bgColorLight,int NavigationBarColor)  {
+    public static void setStatusBar( Activity context, Boolean textColor,int NavigationBarColor)  {
         if (Build.VERSION.SDK_INT>=Build.VERSION_CODES.LOLLIPOP){
-            Window window = activity.getWindow();
+            Window window = context.getWindow();
             View decorView = window.getDecorView();
-            if (bgColorLight) {
+            if (textColor) {
                 decorView.setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
                 | SYSTEM_UI_FLAG_LAYOUT_STABLE
                 | View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);
@@ -76,15 +98,33 @@ public class AView {
 
 
     }
-    public static void setStatusBar(Activity activity){
-        setStatusBar(activity,true,Color.BLACK);
+    /**
+     * @param context 当前Activity
+     * @author Gushenge
+     * @version 0.0.9
+     * @description 动态设置透明状态栏以及状态栏字体颜色
+     */
+    public static void setStatusBar(Activity context){
+        setStatusBar(context,true,Color.BLACK);
     }
-    public static void setStatusBar(Activity activity,Boolean bgColorLight){
-        setStatusBar(activity,bgColorLight,Color.BLACK);
+    /**
+     * @param context 当前Activity
+     * @param textColor 状态栏字体颜色是否为黑色 true为黑色 false为白色
+     * @author Gushenge
+     * @version 0.0.9
+     * @description 动态设置透明状态栏以及状态栏字体颜色
+     */
+    public static void setStatusBar(Activity context,Boolean textColor){
+        setStatusBar(context,textColor,Color.BLACK);
     }
 
-    /**隐藏显示状态栏
-     * @param enable 是否隐藏*/
+    /**
+     * @param context 当前Activity
+     * @param enable 是否隐藏
+     * @author Gushenge
+     * @version 0.0.9
+     * @description 动态隐藏显示状态栏
+     * */
     public static void hideStatusBar( Activity context, Boolean enable) {
         if (enable) {
             WindowManager.LayoutParams lp = context.getWindow().getAttributes();
@@ -98,7 +138,12 @@ public class AView {
             context.getWindow().clearFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
         }
     }
-    /*全屏*/
+    /**
+     * @param context 当前Activity
+     * @author Gushenge
+     * @version 0.1.0
+     * @description 是否全屏显示当前Activity
+     * */
     @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
     public static void fullScreen(Activity context){
 

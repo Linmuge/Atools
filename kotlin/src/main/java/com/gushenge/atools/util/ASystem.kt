@@ -13,6 +13,13 @@ import com.gushenge.atools.others.CommandUtil
 class ASystem {
     companion object{
 
+        /**
+         * @param context 当前界面上下文
+         * @author Gushenge
+         * @version 0.0.9
+         * @return Long
+         * @description 获取当前APP的versionCode
+         * */
         fun getAppVersionCode(context: Context) :Long {
             var versionCode: Long = 1
             val packageInfo = context.packageManager.getPackageInfo(context.packageName, 0)
@@ -23,16 +30,20 @@ class ASystem {
                     packageInfo.versionCode.toLong()
                 }
             }catch (e: PackageManager.NameNotFoundException){
-                Log.e(AKeys.TAG,"获取VersionCode出错")
+                e.printStackTrace()
             }
 
             return versionCode
         }
 
         /**
-         * 判断处理器基带等信息,超过两项及以上通过即为真机
-         * 如此可以排除大部分模拟器
-         * return false 为模拟器  */
+         * @param context 当前界面上下文
+         * @author Gushenge
+         * @version 0.1.1
+         * @return Long true为真机 false为模拟器
+         * @description 判断处理器基带等信息,超过两项及以上通过即为真机,如此可以排除大部分模拟器
+         * @log 新增华为手机判断
+         * */
         fun emulatorCheck(context: Context): Boolean {
             var suspectCount = 0
             //判断是否存在光传感器来判断是否为模拟器

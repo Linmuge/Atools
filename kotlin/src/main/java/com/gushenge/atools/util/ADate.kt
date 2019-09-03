@@ -5,9 +5,14 @@ import java.text.SimpleDateFormat
 import java.util.Date
 
 object ADate {
-    /*
-     * 将时间戳转换为时间
-     */
+
+    /**
+     * @param stamp 时间戳
+     * @author Gushenge
+     * @version 0.0.7
+     * @return String
+     * @description 时间戳转换成时间
+     * */
     val simpleDateFormat = SimpleDateFormat("yyyy-MM-dd HH:mm:ss")
     fun stampToDate(s: Int): String {
         val lt  = s.toLong() * 1000
@@ -15,9 +20,13 @@ object ADate {
         return simpleDateFormat.format(date)
     }
 
-    /*
-     * 将时间转换为时间戳
-     */
+    /**
+     * @param date 当前时间,格式为yyyy-MM-dd HH:mm:ss
+     * @author Gushenge
+     * @version 0.0.7
+     * @return int
+     * @description 时间转换成时间戳
+     * */
     @Throws(ParseException::class)
     fun dateToStamp(s: String): String {
         val date = simpleDateFormat.parse(s)
@@ -25,12 +34,24 @@ object ADate {
         val stamp = ts/1000
         return stamp.toString()
     }
+    /**
+     * @author Gushenge
+     * @version 0.0.7
+     * @return String
+     * @description 获取当前时间
+     * */
     fun getDate() : String{
         //获取当前时间
         val date = Date(System.currentTimeMillis())
         return simpleDateFormat.format(date)
     }
 
+    /**
+     * @author Gushenge
+     * @version 0.0.7
+     * @return int
+     * @description 获取当前时间戳
+     * */
     fun getStamp():String{
         val timeStamp = System.currentTimeMillis()
         return timeStamp.toString().substring(0, 10)

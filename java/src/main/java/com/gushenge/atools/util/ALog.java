@@ -2,6 +2,7 @@ package com.gushenge.atools.util;
 
 import android.util.Log;
 
+@Deprecated
 public class ALog {
     public static void v(String TAG,Object message){
         Log.v(TAG,message.toString());

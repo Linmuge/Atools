@@ -6,22 +6,43 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class ADate {
-    public String stampToDate(int s){
+
+    /**
+     * @param stamp 时间戳
+     * @author Gushenge
+     * @version 0.0.7
+     * @return String
+     * @description 时间戳转换成时间
+     * */
+    public String stampToDate(int stamp){
         String res;
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-        Long lt  = Long.parseLong(Integer.toString(s)) * 1000;
+        long lt  = Long.parseLong(Integer.toString(stamp)) * 1000;
         Date date = new Date(lt);
         res = simpleDateFormat.format(date);
         return res;
     }
-    public String dateToStamp(String s) throws ParseException{
+    /**
+     * @param date 当前时间,格式为yyyy-MM-dd HH:mm:ss
+     * @author Gushenge
+     * @version 0.0.7
+     * @return int
+     * @description 时间转换成时间戳
+     * */
+    public int dateToStamp(String date) throws ParseException{
         String res;
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-        Date date = simpleDateFormat.parse(s);
-        long ts = date != null ? date.getTime() : 0;
+        Date forDate = simpleDateFormat.parse(date);
+        long ts = date != null ? forDate.getTime() : 0;
         res = String.valueOf(ts/1000);
-        return res;
+        return Integer.parseInt(res);
     }
+    /**
+     * @author Gushenge
+     * @version 0.0.7
+     * @return String
+     * @description 获取当前时间
+     * */
     public String getDate(){
         // HH:mm:ss
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
@@ -29,8 +50,14 @@ public class ADate {
         Date date = new Date(System.currentTimeMillis());
         return simpleDateFormat.format(date);
     }
-    public String getStamp(){
+    /**
+     * @author Gushenge
+     * @version 0.0.7
+     * @return int
+     * @description 获取当前时间戳
+     * */
+    public int getStamp(){
         long timeStamp = System.currentTimeMillis();
-        return String.valueOf(timeStamp).substring(0,10);
+        return Integer.parseInt(String.valueOf(timeStamp).substring(0,10));
     }
 }

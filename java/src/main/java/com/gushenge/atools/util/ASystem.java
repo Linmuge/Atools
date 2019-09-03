@@ -15,6 +15,13 @@ import static android.content.Context.SENSOR_SERVICE;
 public class ASystem {
 
 
+    /**
+     * @param context 当前界面上下文
+     * @author Gushenge
+     * @version 0.0.9
+     * @return Long
+     * @description 获取当前APP的versionCode
+     * */
     public static long getAppVersionCode( Context context)  {
         long versionCode = 1;
 
@@ -32,10 +39,15 @@ public class ASystem {
         return versionCode;
     }
 
+
     /**
-     * 判断处理器基带等信息,超过两项及以上通过即为真机
-     * 如此可以排除大部分模拟器
-     * return false 为模拟器  */
+     * @param context 当前界面上下文
+     * @author Gushenge
+     * @version 0.1.1
+     * @return Long true为真机 false为模拟器
+     * @description 判断处理器基带等信息,超过两项及以上通过即为真机,如此可以排除大部分模拟器
+     * @log 新增华为手机判断
+     * */
     public Boolean emulatorCheck(Context context) {
         int suspectCount = 0;
         //判断是否存在光传感器来判断是否为模拟器

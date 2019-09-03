@@ -16,40 +16,61 @@ class AView {
     companion object{
 
         /**
-         * 颜色是不是亮色
-         * @true 亮色
-         * @false 不是
-         *
-         **/
+         * @param color 当前颜色值,类型为Int
+         * @author Gushenge
+         * @version 0.0.8
+         * @return Boolean
+         * @description 判断当前颜色值是不是亮色 true为亮色 false为暗色
+         * */
         fun isLightColor(@ColorInt color: Int): Boolean {
             return ColorUtils.calculateLuminance(color) >= 0.5
         }
 
-        /*动态获取状态栏高度*/
+        /**
+         * @param context 当前Activity
+         * @author Gushenge
+         * @version 0.0.8
+         * @return Int
+         * @description 获取当前状态栏高度,返回值为px
+         * */
         fun getStatusBarHeight(context: Activity): Int {
             val res = context.resources
             val resourceId = res.getIdentifier("status_bar_height", "dimen", "android")
             return if (resourceId > 0) res.getDimensionPixelSize(resourceId) else 0
         }
-        /*动态设置margin*/
-        fun setMargins(v: View, left: Int, top: Int, right: Int, bottom: Int) {
-            if (v.layoutParams is ViewGroup.MarginLayoutParams) {
-                val p = v.layoutParams as ViewGroup.MarginLayoutParams
-                p.setMargins(left, top, right, bottom)
-                v.layoutParams = p
+        /**
+         * @param view 需要设置margin的view
+         * @param start 距左边的距离,单位为px
+         * @param top 距上边的距离,单位为px
+         * @param end 距右边的距离,单位为px
+         * @param bottom 距下边的距离,单位为px
+         * @author Gushenge
+         * @version 0.0.8
+         * @return @null
+         * @description 动态设置view的margin,值为int,单位为px
+         * */
+        fun setMargins(view: View, start: Int, top: Int, end: Int, bottom: Int) {
+            if (view.layoutParams is ViewGroup.MarginLayoutParams) {
+                val p = view.layoutParams as ViewGroup.MarginLayoutParams
+                p.setMargins(start, top, end, bottom)
+                view.layoutParams = p
             }
         }
 
 
         /**
-         * Android 5.0 以上设置沉浸式状态栏
-         * @param bgColorLight 状态栏背景是否是亮色（6.0以上可用）
+         * @param context 当前Activity
+         * @param textColor 状态栏字体颜色是否为黑色 true为黑色 false为白色
+         * @param NavigationBarColor 虚拟键的背景颜色
+         * @author Gushenge
+         * @version 0.0.9
+         * @description 动态设置透明状态栏以及状态栏字体颜色
          */
-        fun setStatusBar(activity: Activity, bgColorLight: Boolean,NavigationBarColor:Int) {
+        fun setStatusBar(context: Activity, textColor: Boolean, NavigationBarColor:Int) {
             if (Build.VERSION.SDK_INT>=Build.VERSION_CODES.LOLLIPOP){
-                val window = activity.window
+                val window = context.window
                 val decorView = window.decorView
-                if (bgColorLight) {
+                if (textColor) {
                     decorView.systemUiVisibility = (View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
                             or View.SYSTEM_UI_FLAG_LAYOUT_STABLE
                             or View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR)
@@ -66,16 +87,33 @@ class AView {
 
 
         }
-        fun setStatusBar(activity: Activity){
-            setStatusBar(activity,true,Color.BLACK)
+        /**
+         * @param context 当前Activity
+         * @author Gushenge
+         * @version 0.0.9
+         * @description 动态设置透明状态栏以及状态栏字体颜色
+         */
+        fun setStatusBar(context: Activity){
+            setStatusBar(context,true,Color.BLACK)
         }
-        fun setStatusBar(activity: Activity,bgColorLight: Boolean){
-            setStatusBar(activity,bgColorLight,Color.BLACK)
+        /**
+         * @param context 当前Activity
+         * @param textColor 状态栏字体颜色是否为黑色 true为黑色 false为白色
+         * @author Gushenge
+         * @version 0.0.9
+         * @description 动态设置透明状态栏以及状态栏字体颜色
+         */
+        fun setStatusBar(context: Activity, textColor: Boolean){
+            setStatusBar(context,textColor,Color.BLACK)
         }
 
-        /**隐藏显示状态栏
-        * @param true 隐藏
-         * @param false 显示*/
+        /**
+         * @param context 当前Activity
+         * @param enable 是否隐藏
+         * @author Gushenge
+         * @version 0.0.9
+         * @description 动态隐藏显示状态栏
+         * */
         fun hideStatusBar(context: Activity,enable: Boolean) {
             val lp = context.window.attributes
             if (enable) {
@@ -85,7 +123,12 @@ class AView {
             }
             context.window.attributes = lp
         }
-        /*全屏*/
+        /**
+         * @param context 当前Activity
+         * @author Gushenge
+         * @version 0.1.0
+         * @description 是否全屏显示当前Activity
+         * */
         @RequiresApi(Build.VERSION_CODES.LOLLIPOP)
         fun fullScreen(context: Activity){
 

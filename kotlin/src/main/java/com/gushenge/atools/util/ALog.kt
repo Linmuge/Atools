@@ -2,6 +2,7 @@ package com.gushenge.atools.util
 
 import android.util.Log
 
+@Deprecated("",level = DeprecationLevel.WARNING)
 object ALog {
     fun v(TAG:String,message:Any){
         Log.v(TAG,message.toString())
