@@ -11,6 +11,7 @@ import android.graphics.drawable.shapes.RoundRectShape;
 import android.util.AttributeSet;
 import android.view.Gravity;
 import android.widget.Button;
+import android.widget.TextView;
 
 /**
  * Created by Gushenge on 2019/06/14.
@@ -22,7 +23,7 @@ import android.widget.Button;
 
 
 @SuppressLint("AppCompatCustomView")
-public class ArcButton extends Button {
+public class ArcButton extends TextView {
     public static int[]	mNormalState		= new int[] {};
     public static int[]	mPressState			= new int[] { android.R.attr.state_pressed, android.R.attr.state_enabled };
     private int			mRadius				= 1000000000;																			//默认的圆角半径

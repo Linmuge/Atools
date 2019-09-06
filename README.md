@@ -2,9 +2,9 @@
 
 - ### 分为两个版本
      kotlin  
-        `implementation 'com.gushenge.atools:kotlin:0.1.1' `  
+        `implementation 'com.gushenge.atools:kotlin:0.1.2' `  
      java  
-        `implementation 'com.gushenge.atools:java:0.1.1'`
+        `implementation 'com.gushenge.atools:java:0.1.2'`
         
 - ### 说明
     APP的targetSdkVersion应大于23  

@@ -10,10 +10,11 @@ import android.util.AttributeSet
 import android.view.Gravity
 import android.view.ViewManager
 import android.widget.Button
+import android.widget.TextView
 import org.jetbrains.anko.custom.ankoView
 
 
-class ArcButton : Button {
+class ArcButton : TextView {
 
     constructor(context: Context):super(context)
     constructor(context: Context,attributes: AttributeSet):super(context,attributes)
