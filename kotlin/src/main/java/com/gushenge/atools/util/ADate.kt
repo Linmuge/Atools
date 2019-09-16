@@ -50,10 +50,20 @@ object ADate {
      * @author Gushenge
      * @version 0.0.7
      * @return int
-     * @description 获取当前时间戳
+     * @description 获取当前时间戳(十位)
      * */
-    fun getStamp():String{
+    fun getStamp():Int{
         val timeStamp = System.currentTimeMillis()
-        return timeStamp.toString().substring(0, 10)
+        return timeStamp.toString().substring(0, 10).toInt()
+    }
+    /**
+     * @author Gushenge
+     * @version 0.0.7
+     * @return int
+     * @description 获取当前时间戳(十三位)
+     * */
+    fun getStampAs13():String{
+        val timeStamp = System.currentTimeMillis()
+        return timeStamp.toString()
     }
 }

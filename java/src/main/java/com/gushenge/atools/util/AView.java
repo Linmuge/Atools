@@ -70,17 +70,17 @@ public class AView {
 
     /**
      * @param context 当前Activity
-     * @param textColor 状态栏字体颜色是否为黑色 true为黑色 false为白色
+     * @param isTextColorBlack 状态栏字体颜色是否为黑色 true为黑色 false为白色
      * @param NavigationBarColor 虚拟键的背景颜色
      * @author Gushenge
      * @version 0.0.9
      * @description 动态设置透明状态栏以及状态栏字体颜色
      */
-    public static void setStatusBar( Activity context, Boolean textColor,int NavigationBarColor)  {
+    public static void setStatusBar( Activity context, Boolean isTextColorBlack,int NavigationBarColor)  {
         if (Build.VERSION.SDK_INT>=Build.VERSION_CODES.LOLLIPOP){
             Window window = context.getWindow();
             View decorView = window.getDecorView();
-            if (textColor) {
+            if (isTextColorBlack) {
                 decorView.setSystemUiVisibility(View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
                 | SYSTEM_UI_FLAG_LAYOUT_STABLE
                 | View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR);

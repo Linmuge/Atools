@@ -54,10 +54,20 @@ public class ADate {
      * @author Gushenge
      * @version 0.0.7
      * @return int
-     * @description 获取当前时间戳
+     * @description 获取当前时间戳(十位)
      * */
     public int getStamp(){
         long timeStamp = System.currentTimeMillis();
         return Integer.parseInt(String.valueOf(timeStamp).substring(0,10));
+    }
+    /**
+     * @author Gushenge
+     * @version 0.0.7
+     * @return int
+     * @description 获取当前时间戳(十三位)
+     * */
+    public String getStampAs13(){
+        long timeStamp = System.currentTimeMillis();
+        return String.valueOf(timeStamp);
     }
 }

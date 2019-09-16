@@ -60,17 +60,17 @@ class AView {
 
         /**
          * @param context 当前Activity
-         * @param textColor 状态栏字体颜色是否为黑色 true为黑色 false为白色
+         * @param isTextColorBlack 状态栏字体颜色是否为黑色 true为黑色 false为白色
          * @param NavigationBarColor 虚拟键的背景颜色
          * @author Gushenge
          * @version 0.0.9
          * @description 动态设置透明状态栏以及状态栏字体颜色
          */
-        fun setStatusBar(context: Activity, textColor: Boolean, NavigationBarColor:Int) {
+        fun setStatusBar(context: Activity, isTextColorBlack: Boolean, NavigationBarColor:Int) {
             if (Build.VERSION.SDK_INT>=Build.VERSION_CODES.LOLLIPOP){
                 val window = context.window
                 val decorView = window.decorView
-                if (textColor) {
+                if (isTextColorBlack) {
                     decorView.systemUiVisibility = (View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN
                             or View.SYSTEM_UI_FLAG_LAYOUT_STABLE
                             or View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR)
