@@ -98,13 +98,13 @@ class AView {
         }
         /**
          * @param context 当前Activity
-         * @param textColor 状态栏字体颜色是否为黑色 true为黑色 false为白色
+         * @param isTextColorBlack 状态栏字体颜色是否为黑色 true为黑色 false为白色
          * @author Gushenge
          * @version 0.0.9
          * @description 动态设置透明状态栏以及状态栏字体颜色
          */
-        fun setStatusBar(context: Activity, textColor: Boolean){
-            setStatusBar(context,textColor,Color.BLACK)
+        fun setStatusBar(context: Activity, isTextColorBlack: Boolean){
+            setStatusBar(context,isTextColorBlack,Color.BLACK)
         }
 
         /**
