@@ -8,29 +8,32 @@ import android.graphics.drawable.StateListDrawable
 import android.graphics.drawable.shapes.RoundRectShape
 import android.util.AttributeSet
 import android.view.Gravity
-import android.view.ViewManager
-import android.widget.Button
 import android.widget.TextView
-import org.jetbrains.anko.custom.ankoView
+import com.gushenge.atools.R
 
 
 class ArcButton : TextView {
 
-    constructor(context: Context):super(context)
-    constructor(context: Context,attributes: AttributeSet):super(context,attributes)
+    constructor(context: Context):this(context,null,0)
+    constructor(context: Context,attributes: AttributeSet):this(context,attributes,0)
+    constructor(context: Context, attributes: AttributeSet?, defStyle:Int):super(context,attributes,defStyle){
+        val typeArray = context.obtainStyledAttributes(attributes, R.styleable.ArcButton)
+        radius = typeArray.getDimension(R.styleable.ArcButton_radius,10000000f)
+        mBgNormalColor = typeArray.getColor(R.styleable.ArcButton_bgColor,Color.GRAY)
+        mBgPressedColor = typeArray.getColor(R.styleable.ArcButton_pressedBgColor,Color.DKGRAY)
+        mTextNormalColor = typeArray.getColor(R.styleable.ArcButton_textColor,Color.BLACK)
+        mTextPressedColor = typeArray.getColor(R.styleable.ArcButton_pressedTextColor,Color.GRAY)
+        initUI()
+    }
 
     //默认的圆角半径
-    private var radius = 1000000000
+    private var radius = 1000000000f
 
     //默认文字和背景颜色
     private var mBgNormalColor = Color.GRAY
     private var mBgPressedColor = Color.DKGRAY
     private var mTextNormalColor = Color.BLACK
     private var mTextPressedColor = Color.BLACK
-
-    init {
-        initUI()
-    }
 
     private fun initUI() {
         gravity = Gravity.CENTER
@@ -55,14 +58,14 @@ class ArcButton : TextView {
     private fun buildDraweableState() {
 
         val outRectr = floatArrayOf(
-            radius.toFloat(),
-            radius.toFloat(),
-            radius.toFloat(),
-            radius.toFloat(),
-            radius.toFloat(),
-            radius.toFloat(),
-            radius.toFloat(),
-            radius.toFloat()
+            radius,
+            radius,
+            radius,
+            radius,
+            radius,
+            radius,
+            radius,
+            radius
         )
         //创建状态管理器
         val drawable = StateListDrawable()
@@ -96,7 +99,7 @@ class ArcButton : TextView {
      *
      * @param radius
      */
-    fun setRadius(radius: Int) {
+    fun setRadius(radius: Float) {
         this.radius = radius
         buildDraweableState()
     }

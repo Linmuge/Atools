@@ -4,6 +4,7 @@ package com.gushenge.atools.ui;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.res.ColorStateList;
+import android.content.res.TypedArray;
 import android.graphics.Color;
 import android.graphics.drawable.ShapeDrawable;
 import android.graphics.drawable.StateListDrawable;
@@ -12,6 +13,8 @@ import android.util.AttributeSet;
 import android.view.Gravity;
 import android.widget.Button;
 import android.widget.TextView;
+
+import com.gushenge.atools.R;
 
 /**
  * Created by Gushenge on 2019/06/14.
@@ -26,20 +29,29 @@ import android.widget.TextView;
 public class ArcButton extends TextView {
     public static int[]	mNormalState		= new int[] {};
     public static int[]	mPressState			= new int[] { android.R.attr.state_pressed, android.R.attr.state_enabled };
-    private int			mRadius				= 1000000000;																			//默认的圆角半径
+    private Float	mRadius;																			//默认的圆角半径
 
     //默认文字和背景颜色
-    private int			mBgNormalColor		= Color.GRAY;
-    private int			mBgPressedColor		= Color.DKGRAY;
-    private int			mTextNormalColor	= Color.BLACK;
-    private int			mTextPressedColor	= Color.BLACK;
+    private int			mBgNormalColor;
+    private int			mBgPressedColor;
+    private int			mTextNormalColor;
+    private int			mTextPressedColor;
 
     public ArcButton(Context context){
-        super(context);
-        initUI();
+        this(context,null,0);
     }
     public ArcButton(Context context, AttributeSet src){
-        super(context,src);
+        this(context, src, 0);
+    }
+
+    public ArcButton(Context context, AttributeSet src,int defStyle){
+        super(context,src,defStyle);
+        TypedArray typeArray = context.obtainStyledAttributes(src, R.styleable.ArcButton);
+        mRadius = typeArray.getDimension(R.styleable.ArcButton_radius,10000000f);
+        mBgNormalColor = typeArray.getColor(R.styleable.ArcButton_bgColor,Color.GRAY);
+        mBgPressedColor = typeArray.getColor(R.styleable.ArcButton_pressedBgColor,Color.DKGRAY);
+        mTextNormalColor = typeArray.getColor(R.styleable.ArcButton_textColor,Color.BLACK);
+        mTextPressedColor = typeArray.getColor(R.styleable.ArcButton_pressedTextColor,Color.GRAY);
         initUI();
     }
 
@@ -96,7 +108,7 @@ public class ArcButton extends TextView {
      *
      * @param radius
      */
-    public void setRadius(int radius){
+    public void setRadius(float radius){
         this.mRadius = radius;
         buildDraweableState();
     }

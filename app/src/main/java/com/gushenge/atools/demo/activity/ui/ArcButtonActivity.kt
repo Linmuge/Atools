@@ -24,7 +24,7 @@ class ArcButtonActivity : BaseActivity() {
                 val color = ARandom.color()
                 textColor = if (AView.isLightColor(color)) Color.BLACK else Color.WHITE
                 backgroundColor = color
-                setRadius(0)
+                setRadius(0f)
                 text = "点我查看圆角半径"
                 onClick { toast(radius.toString()) }
             }.lparams(width = matchParent,height = dip(45)){
@@ -35,7 +35,7 @@ class ArcButtonActivity : BaseActivity() {
                 max = dip(45)/2
                 setOnSeekBarChangeListener(object :SeekBar.OnSeekBarChangeListener{
                     override fun onProgressChanged(p0: SeekBar?, p1: Int, p2: Boolean) {
-                        button.setRadius(p1)
+                        button.setRadius(p1.toFloat())
                         radius = p1
                     }
 

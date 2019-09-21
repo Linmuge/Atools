@@ -3,6 +3,7 @@ package com.gushenge.atools.demo.activity
 import android.graphics.Color
 import android.os.Bundle
 import android.view.View
+import com.gushenge.atools.demo.R
 import com.gushenge.atools.demo.ui.titlebar
 import com.gushenge.atools.util.ARandom
 import com.gushenge.atools.util.AView
@@ -12,7 +13,6 @@ import org.jetbrains.anko.sdk27.coroutines.onClick
 
 class MainActivity : BaseActivity() {
 
-    var test by APreference("test",1)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         initView()

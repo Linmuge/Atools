@@ -93,7 +93,7 @@ class AViewActivity : BaseActivity() {
                     }
                     arcButton {
                         text = "setMargins()-动态设置margin 单位px"
-                        var color = ARandom.color()
+                        val color = ARandom.color()
                         textColor = if (AView.isLightColor(color)) Color.BLACK else Color.WHITE
                         allCaps = false
                         backgroundColor = color
