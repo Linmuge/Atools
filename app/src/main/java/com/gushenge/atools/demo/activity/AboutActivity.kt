@@ -57,6 +57,18 @@ class AboutActivity : BaseActivity() {
                 val color = ARandom.color()
                 textColor = if(AView.isLightColor(color))Color.BLACK else Color.WHITE
                 backgroundColor = color
+                text = "GitLab"
+                allCaps = false
+                onClick { browse("https://gitlab.com/Gushenge") }
+            }.lparams{
+                width = matchParent
+                height = dip(45)
+                margin = dip(5)
+            }
+            arcButton {
+                val color = ARandom.color()
+                textColor = if(AView.isLightColor(color))Color.BLACK else Color.WHITE
+                backgroundColor = color
                 text = "个人博客"
                 allCaps = false
                 onClick { browse("https://www.gushenge.com") }

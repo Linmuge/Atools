@@ -74,20 +74,20 @@ class ADateActivity : BaseActivity() {
                     text = "转换"
                     onClick {
                         if(stamp.text.isNotEmpty()&&time.text.isNotEmpty()){
-                            time.setText(ADate.getDate())
-                            stamp.setText(ADate.getStamp())
+                            time.setText(ADate.getDateToSecond())
+                            stamp.setText(ADate.getStamp().toString())
                         }else{
                             if (stamp.text.isNotEmpty()){
-                                time.setText(ADate.stampToDate(stamp.text.trim().toString().toInt()))
+                                time.setText(ADate.stampToDate(stamp.text.trim().toString().toLong()))
                             }else if (time.text.isNotEmpty()){
                                 try {
-                                    stamp.setText(ADate.dateToStamp(time.text.trim().toString()))
+                                    stamp.setText(ADate.dateToStamp(time.text.trim().toString()).toString())
                                 }catch (e:ParseException){
                                     toast("时间格式不对")
                                 }
                             }else{
-                                time.setText(ADate.getDate())
-                                stamp.setText(ADate.getStamp())
+                                time.setText(ADate.getDateToSecond())
+                                stamp.setText(ADate.getStamp().toString())
                             }
                         }
                     }
@@ -117,7 +117,7 @@ class ADateActivity : BaseActivity() {
                 text = "stampToDate()-时间戳转换为日期"
                 onClick {
                     if(stamp.text.isNotEmpty()){
-                        time.setText(ADate.stampToDate(stamp.text.toString().toInt()))
+                        time.setText(ADate.stampToDate(stamp.text.toString().toLong()))
                     }else{
                         toast("时间戳为空")
                     }
@@ -135,8 +135,7 @@ class ADateActivity : BaseActivity() {
                 text = "dateToStamp()-日期转换为时间戳"
                 onClick {
                     if(time.text.isNotEmpty()){
-                        stamp.setText(
-                            ADate.dateToStamp(time.text.toString()))
+                        stamp.setText(ADate.dateToStamp(time.text.toString()).toString())
                     }else{
                         toast("日期为空")
                     }
@@ -151,7 +150,22 @@ class ADateActivity : BaseActivity() {
                 textColor = if (AView.isLightColor(color)) Color.BLACK else Color.WHITE
                 backgroundColor = color
                 allCaps = false
-                text = "getDate()-获取当前日期"
+                text = "getDateToSecond()-获取当前日期(精确到秒)"
+                onClick {
+                   time.setText(ADate.getDateToSecond())
+
+                }
+            }.lparams{
+                width = matchParent
+                height = dip(45)
+                margin = dip(5)
+            }
+            arcButton {
+                val color = ARandom.color()
+                textColor = if (AView.isLightColor(color)) Color.BLACK else Color.WHITE
+                backgroundColor = color
+                allCaps = false
+                text = "getDate()-获取当前日期(精确到毫秒)"
                 onClick {
                    time.setText(ADate.getDate())
 
@@ -166,9 +180,23 @@ class ADateActivity : BaseActivity() {
                 textColor = if (AView.isLightColor(color)) Color.BLACK else Color.WHITE
                 backgroundColor = color
                 allCaps = false
-                text = "getStamp()-获取当前时间戳"
+                text = "getStamp()-获取当前10位时间戳"
                 onClick {
-                    stamp.setText(ADate.getStamp())
+                    stamp.setText(ADate.getStamp().toString())
+                }
+            }.lparams{
+                width = matchParent
+                height = dip(45)
+                margin = dip(5)
+            }
+            arcButton {
+                val color = ARandom.color()
+                textColor = if (AView.isLightColor(color)) Color.BLACK else Color.WHITE
+                backgroundColor = color
+                allCaps = false
+                text = "getStampAs13()-获取当前13位时间戳"
+                onClick {
+                    stamp.setText(ADate.getStampAs13().toString())
                 }
             }.lparams{
                 width = matchParent

@@ -182,6 +182,20 @@ class AViewActivity : BaseActivity() {
                     }.lparams(width = matchParent, height = dip(45)) {
                         margin=dip(5)
                     }
+                    arcButton {
+                        text = "fullScreen(context)-全屏显示当前Activity"
+                        var color = ARandom.color()
+                        textColor = if (AView.isLightColor(color)) Color.BLACK else Color.WHITE
+                        allCaps = false
+                        backgroundColor = color
+                        textSize = sp(6).toFloat()
+                        onClick {
+                            AView.fullScreen(this@AViewActivity)
+                            longToast("标题栏是初始化时获取状态栏高度设置的View高度,所以高度不会发生变化")
+                        }
+                    }.lparams(width = matchParent, height = dip(45)) {
+                        margin=dip(5)
+                    }
 
                 }
             }
