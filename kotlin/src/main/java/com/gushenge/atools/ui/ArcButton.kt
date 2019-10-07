@@ -20,9 +20,9 @@ class ArcButton : TextView {
         val typeArray = context.obtainStyledAttributes(attributes, R.styleable.ArcButton)
         radius = typeArray.getDimension(R.styleable.ArcButton_radius,10000000f)
         mBgNormalColor = typeArray.getColor(R.styleable.ArcButton_bgColor,Color.GRAY)
-        mBgPressedColor = typeArray.getColor(R.styleable.ArcButton_pressedBgColor,Color.DKGRAY)
+        mBgPressedColor = typeArray.getColor(R.styleable.ArcButton_pressedBgColor,mBgNormalColor)
         mTextNormalColor = typeArray.getColor(R.styleable.ArcButton_textColor,Color.BLACK)
-        mTextPressedColor = typeArray.getColor(R.styleable.ArcButton_pressedTextColor,Color.GRAY)
+        mTextPressedColor = typeArray.getColor(R.styleable.ArcButton_pressedTextColor,mTextNormalColor)
         initUI()
     }
 
@@ -81,11 +81,6 @@ class ArcButton : TextView {
         pressedDrawable.paint.color = mBgPressedColor
         //添加到状态管理里面
         drawable.addState(mPressState, pressedDrawable)
-
-        //		ShapeDrawable disableDrawable = new ShapeDrawable(rectShape);
-        //		disableDrawable.getPaint().setColor(prssedClor);
-        //		disableDrawable.getPaint().setAlpha(125);
-        //		drawable.addState(mDisableState, disableDrawable);
 
         val normalDrawable = ShapeDrawable(rectShape)
         normalDrawable.paint.color = mBgNormalColor
@@ -154,7 +149,6 @@ class ArcButton : TextView {
         buildColorDrawableState()
 
     }
-
     companion object {
         var mNormalState = intArrayOf()
         var mPressState = intArrayOf(android.R.attr.state_pressed, android.R.attr.state_enabled)

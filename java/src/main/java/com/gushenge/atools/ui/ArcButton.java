@@ -49,9 +49,9 @@ public class ArcButton extends TextView {
         TypedArray typeArray = context.obtainStyledAttributes(src, R.styleable.ArcButton);
         mRadius = typeArray.getDimension(R.styleable.ArcButton_radius,10000000f);
         mBgNormalColor = typeArray.getColor(R.styleable.ArcButton_bgColor,Color.GRAY);
-        mBgPressedColor = typeArray.getColor(R.styleable.ArcButton_pressedBgColor,Color.DKGRAY);
+        mBgPressedColor = typeArray.getColor(R.styleable.ArcButton_pressedBgColor,mBgNormalColor);
         mTextNormalColor = typeArray.getColor(R.styleable.ArcButton_textColor,Color.BLACK);
-        mTextPressedColor = typeArray.getColor(R.styleable.ArcButton_pressedTextColor,Color.GRAY);
+        mTextPressedColor = typeArray.getColor(R.styleable.ArcButton_pressedTextColor,mTextNormalColor);
         initUI();
     }
 
