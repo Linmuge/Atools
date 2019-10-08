@@ -30,6 +30,18 @@ class ASystemActivity : BaseActivity() {
             }.lparams(width = matchParent,height = dip(40)){
                 margin = dip(5)
             }
+            arcButton("getAppVersionName()") {
+                val color = ARandom.color()
+                textColor = if (AView.isLightColor(color)) Color.BLACK else Color.WHITE
+                backgroundColor = color
+                allCaps = false
+                onClick {
+                    val code = ASystem.getAppVersionName(this@ASystemActivity)
+                    toast("当前APP VersionName为$code ")
+                }
+            }.lparams(width = matchParent,height = dip(40)){
+                margin = dip(5)
+            }
             arcButton("emulatorCheck()") {
                 val color = ARandom.color()
                 textColor = if (AView.isLightColor(color)) Color.BLACK else Color.WHITE

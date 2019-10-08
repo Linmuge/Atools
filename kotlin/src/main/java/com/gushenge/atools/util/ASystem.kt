@@ -9,6 +9,7 @@ import android.os.Build
 import android.util.Log
 import com.gushenge.atools.dao.AKeys
 import com.gushenge.atools.others.CommandUtil
+import java.lang.Exception
 
 class ASystem {
     companion object{
@@ -34,6 +35,23 @@ class ASystem {
             }
 
             return versionCode
+        }
+
+
+        /**
+         * @param context 当前界面上下文
+         * @author Gushenge
+         * @version 0.1.9-pre_alpha
+         * @return String
+         * @description 获取当前APP的versionName
+         * */
+        fun getAppVersionName(context: Context) :String {
+            return try {
+                context.packageManager.getPackageInfo(context.packageName, 0).versionName
+            } catch (e: PackageManager.NameNotFoundException) {
+                e.printStackTrace()
+                "未获取到VersionName"
+            }
         }
 
         /**

@@ -39,6 +39,22 @@ public class ASystem {
         return versionCode;
     }
 
+    /**
+     * @param context 当前界面上下文
+     * @author Gushenge
+     * @version 0.1.9-pre_alpha
+     * @return String
+     * @description 获取当前APP的versionName
+     * */
+    public static String getAppVersionName(Context context){
+        try {
+            return context.getPackageManager().getPackageInfo(context.getPackageName(), 0).packageName;
+        } catch (PackageManager.NameNotFoundException e) {
+            e.printStackTrace();
+            return "未获取到VersionName";
+        }
+    }
+
 
     /**
      * @param context 当前界面上下文
