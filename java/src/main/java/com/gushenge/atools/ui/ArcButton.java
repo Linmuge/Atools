@@ -27,15 +27,15 @@ import com.gushenge.atools.R;
 
 @SuppressLint("AppCompatCustomView")
 public class ArcButton extends TextView {
-    public static int[]	mNormalState		= new int[] {};
-    public static int[]	mPressState			= new int[] { android.R.attr.state_pressed, android.R.attr.state_enabled };
+    public static int[]	mNormalState = new int[] {};
+    public static int[]	mPressState	= new int[] { android.R.attr.state_pressed, android.R.attr.state_enabled };
     private Float	mRadius;																			//默认的圆角半径
 
     //默认文字和背景颜色
-    private int			mBgNormalColor;
-    private int			mBgPressedColor;
-    private int			mTextNormalColor;
-    private int			mTextPressedColor;
+    private int	mBgNormalColor;
+    private int	mBgPressedColor;
+    private int	mTextNormalColor;
+    private int	mTextPressedColor;
 
     public ArcButton(Context context){
         this(context,null,0);

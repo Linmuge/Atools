@@ -14,6 +14,15 @@ import com.gushenge.atools.R
 
 class ArcButton : TextView {
 
+    //默认的圆角半径
+    private var radius = 1000000000f
+
+    //默认文字和背景颜色
+    private var mBgNormalColor = Color.GRAY
+    private var mBgPressedColor = mBgNormalColor
+    private var mTextNormalColor = Color.BLACK
+    private var mTextPressedColor = mTextNormalColor
+
     constructor(context: Context):this(context,null,0)
     constructor(context: Context,attributes: AttributeSet):this(context,attributes,0)
     constructor(context: Context, attributes: AttributeSet?, defStyle:Int):super(context,attributes,defStyle){
@@ -25,15 +34,6 @@ class ArcButton : TextView {
         mTextPressedColor = typeArray.getColor(R.styleable.ArcButton_pressedTextColor,mTextNormalColor)
         initUI()
     }
-
-    //默认的圆角半径
-    private var radius = 1000000000f
-
-    //默认文字和背景颜色
-    private var mBgNormalColor = Color.GRAY
-    private var mBgPressedColor = Color.DKGRAY
-    private var mTextNormalColor = Color.BLACK
-    private var mTextPressedColor = Color.BLACK
 
     private fun initUI() {
         gravity = Gravity.CENTER
