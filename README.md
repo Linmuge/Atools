@@ -2,9 +2,9 @@
 
 - ### 分为两个版本
      kotlin  
-        `implementation 'com.gushenge.atools:kotlin:0.1.3' `  
+        `implementation 'com.gushenge.atools:kotlin:0.1.9-pre_alpha' `  
      java  
-        `implementation 'com.gushenge.atools:java:0.1.3'`
+        `implementation 'com.gushenge.atools:java:0.1.9-pre_alpha'`
         
 - ### 说明
     APP的targetSdkVersion应大于23  
@@ -12,7 +12,7 @@
     
 
 - ### [具体功能](https://github.com/Gushenge/Atools/wiki)
-- ### [Demo 下载](http://linzi.gushenge.com/Atools.apk)
+- ### [Demo 下载](https://www.coolapk.com/apk/244767)
 - 附：
 所有已知仓库路径
         
