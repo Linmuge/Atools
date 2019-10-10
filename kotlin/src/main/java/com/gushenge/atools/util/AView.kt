@@ -16,6 +16,30 @@ class AView {
     companion object{
 
         /**
+         * @param view 需要设置高度的view
+         * @param heightAsPx 需要设置的高度,单位为px
+         * @author Gushenge
+         * @version 0.2.0-pre_alpha
+         * */
+        fun setHeight(view: View, heightAsPx: Int) {
+            val pp = view.layoutParams
+            pp.height = heightAsPx
+            view.layoutParams = pp
+        }
+
+        /**
+         * @param view 需要设置宽度的view
+         * @param widthAsPx 需要设置的宽度,单位为px
+         * @author Gushenge
+         * @version 0.2.0-pre_alpha
+         * */
+        fun setWidth(view: View, widthAsPx: Int) {
+            val pp = view.layoutParams
+            pp.width = widthAsPx
+            view.layoutParams = pp
+        }
+
+        /**
          * @param color 当前颜色值,类型为Int
          * @author Gushenge
          * @version 0.0.8

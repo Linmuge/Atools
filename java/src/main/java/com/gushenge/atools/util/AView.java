@@ -19,7 +19,29 @@ import static android.view.WindowManager.LayoutParams.FLAG_FULLSCREEN;
 
 public class AView {
 
+    /**
+     * @param view 需要设置高度的view
+     * @param heightAsPx 需要设置的高度,单位为px
+     * @author Gushenge
+     * @version 0.2.0-pre_alpha
+     * */
+    public static void setHeight(View view,  int heightAsPx) {
+        ViewGroup.LayoutParams pp = view.getLayoutParams();
+        pp.height = heightAsPx;
+        view.setLayoutParams(pp);
+    }
 
+    /**
+     * @param view 需要设置宽度的view
+     * @param widthAsPx 需要设置的宽度,单位为px
+     * @author Gushenge
+     * @version 0.2.0-pre_alpha
+     * */
+    public static void setWidth(View view,  int widthAsPx) {
+        ViewGroup.LayoutParams pp = view.getLayoutParams();
+        pp.width = widthAsPx;
+        view.setLayoutParams(pp);
+    }
     /**
      * @param color 当前颜色值,类型为Int
      * @author Gushenge
@@ -41,10 +63,11 @@ public class AView {
     public static int getStatusBarHeight(Activity context) {
         Resources res = context.getResources();
         int resourceId = res.getIdentifier("status_bar_height", "dimen", "android");
-        if (resourceId > 0)
+        if (resourceId > 0){
             return res.getDimensionPixelSize(resourceId);
-        else
+        }else{
             return 0;
+        }
 
     }
     /**
