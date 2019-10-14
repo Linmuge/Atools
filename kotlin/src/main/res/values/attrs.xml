@@ -8,4 +8,18 @@
         <attr name="bgColor" format="color" />
         <attr name="pressedBgColor" format="color" />
     </declare-styleable>
+
+    <declare-styleable name="RollingTextView">
+        <!--帧数-->
+        <attr name="frameNum" format="integer" />
+        <!--内容的格式-->
+        <attr name="textType">
+            <enum name="money" value="0" />
+            <enum name="num" value="1" />
+        </attr>
+        <!--是否设置每三位数字一个逗号-->
+        <attr name="useCommaFormat" format="boolean" />
+        <!--是否当内容改变的时候使用动画，反之则不使用动画-->
+        <attr name="runWhenChange" format="boolean" />
+    </declare-styleable>
 </resources>

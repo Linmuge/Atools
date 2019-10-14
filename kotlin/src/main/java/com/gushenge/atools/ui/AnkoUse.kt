@@ -24,3 +24,8 @@ inline fun ViewManager.arcButton(text:String? ,init: ArcButton.() -> Unit): ArcB
 inline fun ViewManager.autoHeightImage(init: AutoHeightImage.() -> Unit): AutoHeightImage {
     return ankoView({ AutoHeightImage(it) }, theme = 0, init = init)
 }
+
+inline fun ViewManager.rollingTextView(init: RollingTextView.() -> Unit): RollingTextView {
+    return ankoView({ RollingTextView(it) }, theme = 0, init = init)
+}
+

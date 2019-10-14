@@ -4,7 +4,9 @@ import android.graphics.Color
 import android.os.Bundle
 import com.gushenge.atools.demo.activity.ui.ArcButtonActivity
 import com.gushenge.atools.demo.activity.ui.AutoHeightImageActivity
+import com.gushenge.atools.demo.activity.ui.RollingTextViewActivity
 import com.gushenge.atools.demo.ui.titlebar
+import com.gushenge.atools.ui.RollingTextView
 import com.gushenge.atools.ui.arcButton
 import com.gushenge.atools.util.ARandom
 import com.gushenge.atools.util.AView
@@ -37,6 +39,19 @@ class UiActivity : BaseActivity() {
                 allCaps = false
                 backgroundColor = color
                 onClick { startActivity<ArcButtonActivity>() }
+            }.lparams(
+                width = matchParent,
+                height = dip(40)
+            ){
+                margin = dip(5)
+            }
+            arcButton {
+                text = "滚动动效的textview - RollTextView"
+                val color = ARandom.color()
+                textColor = if (AView.isLightColor(color))Color.BLACK else Color.WHITE
+                allCaps = false
+                backgroundColor = color
+                onClick { startActivity<RollingTextViewActivity>() }
             }.lparams(
                 width = matchParent,
                 height = dip(40)
