@@ -9,8 +9,8 @@ android {
         applicationId "com.gushenge.atools.demo"
         minSdkVersion 21
         targetSdkVersion 29
-        versionCode 4
-        versionName "0.1.5"
+        versionCode 5
+        versionName "0.2.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables.useSupportLibrary = true
 
@@ -51,10 +51,10 @@ android {
 dependencies {
     implementation 'androidx.appcompat:appcompat:1.1.0'
     implementation"org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
-    implementation 'androidx.core:core-ktx:1.2.0-alpha04'
+    implementation 'androidx.core:core-ktx:1.2.0-rc01'
     implementation project(path: ':kotlin')
     implementation "org.jetbrains.anko:anko:0.10.8"
-    implementation 'com.github.bumptech.glide:glide:4.9.0'
+    implementation 'com.github.bumptech.glide:glide:4.10.0'
     implementation 'com.zzhoujay.richtext:richtext:3.0.8'
 
 }

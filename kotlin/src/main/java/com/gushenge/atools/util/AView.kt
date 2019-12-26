@@ -1,8 +1,10 @@
 package com.gushenge.atools.util
 
 import android.app.Activity
+import android.content.Context
 import android.graphics.Color
 import android.os.Build
+import android.util.DisplayMetrics
 import android.util.Log.e
 import android.view.View
 import android.view.ViewGroup
@@ -90,7 +92,11 @@ class AView {
          * @version 0.0.9
          * @description 动态设置透明状态栏以及状态栏字体颜色
          */
-        fun setStatusBar(context: Activity, isTextColorBlack: Boolean, NavigationBarColor:Int) {
+        fun setStatusBar(
+            context: Activity,
+            isTextColorBlack: Boolean = true,
+            NavigationBarColor: Int = Color.BLACK
+        ) {
             if (Build.VERSION.SDK_INT>=Build.VERSION_CODES.LOLLIPOP){
                 val window = context.window
                 val decorView = window.decorView
@@ -110,25 +116,6 @@ class AView {
             }
 
 
-        }
-        /**
-         * @param context 当前Activity
-         * @author Gushenge
-         * @version 0.0.9
-         * @description 动态设置透明状态栏以及状态栏字体颜色
-         */
-        fun setStatusBar(context: Activity){
-            setStatusBar(context,true,Color.BLACK)
-        }
-        /**
-         * @param context 当前Activity
-         * @param isTextColorBlack 状态栏字体颜色是否为黑色 true为黑色 false为白色
-         * @author Gushenge
-         * @version 0.0.9
-         * @description 动态设置透明状态栏以及状态栏字体颜色
-         */
-        fun setStatusBar(context: Activity, isTextColorBlack: Boolean){
-            setStatusBar(context,isTextColorBlack,Color.BLACK)
         }
 
         /**
@@ -167,5 +154,64 @@ class AView {
             decorView.systemUiVisibility = option
             windowManager.statusBarColor = Color.TRANSPARENT
         }
+
+        /**
+         * 获取的屏幕真实高度(含虚拟键所占空间)
+         * @param context
+         * @version 0.2.0
+         * @return
+         */
+        fun getScreenHeight(context: Context): Int {
+            val windowManager = context.getSystemService(Context.WINDOW_SERVICE) as WindowManager
+            val display = windowManager.defaultDisplay
+            val realMetric = DisplayMetrics()
+            try {
+                val c = Class.forName("android.view.Display")
+                val method = c.getMethod("getRealMetrics", DisplayMetrics::class.java)
+                method.invoke(display, realMetric)
+            } catch (e: Exception) {
+                e.printStackTrace()
+            }
+
+            return realMetric.heightPixels
+        }
+
+        /**
+         * 获取的当前显示屏幕的高度(不包含虚拟键所占空间)
+         * @param context
+         * @return
+         */
+        fun getDisplayScreenHeight(context: Context): Int {
+            val windowManager = context.getSystemService(Context.WINDOW_SERVICE) as WindowManager
+            val display = windowManager.defaultDisplay
+            //获取的像素宽高不包含虚拟键所占空间
+            val metric = DisplayMetrics()
+            display.getMetrics(metric)
+            return metric.heightPixels
+        }
+
+        /**
+         * 获取屏幕的密度
+         * @param context
+         * @return
+         */
+        fun getDisplayScreenDensity(context: Context): Float {
+            val windowManager = context.getSystemService(Context.WINDOW_SERVICE) as WindowManager
+            val display = windowManager.defaultDisplay
+            //获取的像素宽高不包含虚拟键所占空间
+            val metric = DisplayMetrics()
+            display.getMetrics(metric)
+            return metric.density
+        }
+
+        /**
+         * 获取虚拟功能键高度
+         * @param context
+         * @return
+         */
+        fun getVirtualBarHeight(context: Context): Int {
+            return getScreenHeight(context) - getDisplayScreenHeight(context)
+        }
     }
+
 }

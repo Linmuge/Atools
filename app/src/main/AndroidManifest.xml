@@ -13,17 +13,18 @@
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
-        <activity android:name=".activity.ui.RollingTextViewActivity"></activity>
-        <activity android:name=".activity.util.ALogActivity"></activity>
-        <activity android:name=".activity.util.ASystemActivity"></activity>
-        <activity android:name=".activity.util.APreferenceActivity"></activity>
-        <activity android:name=".activity.util.AViewActivity"></activity>
-        <activity android:name=".activity.util.ARandomActivity"></activity>
-        <activity android:name=".activity.AboutActivity"></activity>
-        <activity android:name=".activity.ui.ArcButtonActivity"></activity>
-        <activity android:name=".activity.util.ADateActivity"></activity>
-        <activity android:name=".activity.UtilsActivity"></activity>
-        <activity android:name=".activity.UiActivity"></activity>
+        <activity android:name=".activity.util.KeyboardActivity"></activity>
+        <activity android:name=".activity.ui.RollingTextViewActivity" />
+        <activity android:name=".activity.util.ALogActivity" />
+        <activity android:name=".activity.util.ASystemActivity" />
+        <activity android:name=".activity.util.APreferenceActivity" />
+        <activity android:name=".activity.util.AViewActivity" />
+        <activity android:name=".activity.util.ARandomActivity" />
+        <activity android:name=".activity.AboutActivity" />
+        <activity android:name=".activity.ui.ArcButtonActivity" />
+        <activity android:name=".activity.util.ADateActivity" />
+        <activity android:name=".activity.UtilsActivity" />
+        <activity android:name=".activity.UiActivity" />
         <activity android:name=".activity.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -31,7 +32,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".activity.ui.AutoHeightImageActivity"></activity>
+        <activity android:name=".activity.ui.AutoHeightImageActivity" />
     </application>
 
 </manifest>

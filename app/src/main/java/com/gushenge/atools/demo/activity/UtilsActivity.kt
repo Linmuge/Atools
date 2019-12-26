@@ -74,6 +74,16 @@ class UtilsActivity : BaseActivity() {
                     }.lparams(width = matchParent,height = dip(40)){
                         margin = dip(5)
                     }
+                    arcButton {
+                        text = "键盘监听"
+                        val color = ARandom.color()
+                        textColor = if (AView.isLightColor(color)) Color.BLACK else Color.WHITE
+                        allCaps = false
+                        backgroundColor = color
+                        onClick { startActivity<KeyboardActivity>() }
+                    }.lparams(width = matchParent, height = dip(40)) {
+                        margin = dip(5)
+                    }
                     textView("以下仅适用于kotlin"){
                         gravity = Gravity.CENTER
                     }.lparams(width = matchParent,height = dip(45)){

@@ -4,7 +4,7 @@
 #### 由于时间有限,Java版本暂不维护,有需求可以使用kotlin版本,如遇bug可提issues
 
      kotlin  
-        `implementation 'com.gushenge.atools:kotlin:0.1.9' `  
+        `implementation 'com.gushenge.atools:kotlin:0.2.0' `  
      java  
         `implementation 'com.gushenge.atools:java:0.1.9'`
         
