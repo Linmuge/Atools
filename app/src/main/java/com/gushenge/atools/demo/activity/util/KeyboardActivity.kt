@@ -25,11 +25,11 @@ class KeyboardActivity : BaseActivity() {
 
     override fun onStart() {
         super.onStart()
-        keyboardWatcher = KeyboardWatcher.get().init(this, window.decorView) { b, i ->
-            if (b) {
-                Toast.makeText(application, "键盘显示了！高度为：$i", Toast.LENGTH_SHORT).show()
+        keyboardWatcher = KeyboardWatcher.get().init(this, window.decorView) { isShow, height ->
+            if (isShow) {
+                Toast.makeText(application, "键盘显示了！高度为：$height", Toast.LENGTH_SHORT).show()
             } else {
-                Toast.makeText(application, "键盘隐藏了！高度为：$i", Toast.LENGTH_SHORT).show()
+                Toast.makeText(application, "键盘隐藏了！高度为：$height", Toast.LENGTH_SHORT).show()
             }
         }
     }

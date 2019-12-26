@@ -34,7 +34,11 @@ class KeyboardWatcher {
         return this
     }
 
-    fun init(context: Context, decorView: View, listener: (Boolean, Int) -> Unit): KeyboardWatcher {
+    fun init(
+        context: Context,
+        decorView: View,
+        listener: (isShow: Boolean, height: Int) -> Unit
+    ): KeyboardWatcher {
         this.context = context
         this.decorView = decorView
         simpleGlobalLayoutListener = SimpleGlobalLayoutListener(listener)
@@ -96,10 +100,10 @@ class KeyboardWatcher {
         return Pair(heightDifference > 0, heightDifference)
     }
 
-    inner class SimpleGlobalLayoutListener(listener: (Boolean, Int) -> Unit) :
+    inner class SimpleGlobalLayoutListener(listener: (isShow: Boolean, height: Int) -> Unit) :
         OnGlobalLayoutListener {
         private var isKeyboardShow = false
-        private val onKeyboardStateChangeListener: (Boolean, Int) -> Unit
+        private val onKeyboardStateChangeListener: (isShow: Boolean, height: Int) -> Unit
         override fun onGlobalLayout() {
             if (null != decorView) {
                 val pair = isKeyboardShowing(context, decorView!!)
