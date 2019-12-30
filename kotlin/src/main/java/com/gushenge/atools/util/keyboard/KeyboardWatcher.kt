@@ -1,11 +1,11 @@
 package com.gushenge.atools.util.keyboard
 
-import android.content.Context
+import android.app.Activity
 import android.graphics.Rect
 import android.util.Pair
 import android.view.View
 import android.view.ViewTreeObserver.OnGlobalLayoutListener
-import com.gushenge.atools.util.getDisplayScreenHeight
+import com.gushenge.atools.util.getMiSupplementHeight
 
 /**
  * Created by Gushenge on 2019/12/26.
@@ -13,7 +13,7 @@ import com.gushenge.atools.util.getDisplayScreenHeight
 class KeyboardWatcher {
     private var globalLayoutListener: GlobalLayoutListener? = null
     private var simpleGlobalLayoutListener: SimpleGlobalLayoutListener? = null
-    private lateinit var context: Context
+    private lateinit var context: Activity
     private var decorView: View? = null
     /**
      * 监听键盘的状态变化
@@ -23,7 +23,7 @@ class KeyboardWatcher {
      * @return
      */
     fun init(
-        context: Context,
+        context: Activity,
         decorView: View,
         listener: OnKeyboardStateChangeListener?
     ): KeyboardWatcher {
@@ -35,7 +35,7 @@ class KeyboardWatcher {
     }
 
     fun init(
-        context: Context,
+        context: Activity,
         decorView: View,
         listener: (isShow: Boolean, height: Int) -> Unit
     ): KeyboardWatcher {
@@ -90,14 +90,14 @@ class KeyboardWatcher {
      * @param decorView
      * @return
      */
-    fun isKeyboardShowing(context: Context, decorView: View): Pair<Boolean, Int> {
+    fun isKeyboardShowing(context: Activity, decorView: View): Pair<Boolean, Int> {
+        val displayScreenHeight = context.resources.displayMetrics.heightPixels
         val outRect = Rect()
         //指当前Window实际的可视区域大小，通过decorView获取到程序显示的区域，包括标题栏，但不包括状态栏。
         decorView.getWindowVisibleDisplayFrame(outRect)
-        val displayScreenHeight = context.getDisplayScreenHeight()
         //如果屏幕高度和Window可见区域高度差值大于0，则表示软键盘显示中，否则软键盘为隐藏状态。
         val heightDifference = displayScreenHeight - outRect.bottom
-        return Pair(heightDifference > 0, heightDifference)
+        return Pair(heightDifference > 0, heightDifference + context.getMiSupplementHeight())
     }
 
     inner class SimpleGlobalLayoutListener(listener: (isShow: Boolean, height: Int) -> Unit) :
@@ -105,17 +105,17 @@ class KeyboardWatcher {
         private var isKeyboardShow = false
         private val onKeyboardStateChangeListener: (isShow: Boolean, height: Int) -> Unit
         override fun onGlobalLayout() {
-            if (null != decorView) {
+            decorView?.post {
                 val pair = isKeyboardShowing(context, decorView!!)
                 if (pair.first) {
                     onKeyboardStateChangeListener.invoke(
                         true.also { isKeyboardShow = it },
-                        pair.second!!
+                        pair.second
                     )
                 } else if (isKeyboardShow) {
                     onKeyboardStateChangeListener.invoke(
                         false.also { isKeyboardShow = it },
-                        pair.second!!
+                        0
                     )
                 }
             }
@@ -137,11 +137,11 @@ class KeyboardWatcher {
                 if (pair.first) {
                     onKeyboardStateChangeListener.onKeyboardStateChange(true.also {
                         isKeyboardShow = it
-                    }, pair.second!!)
+                    }, pair.second)
                 } else if (isKeyboardShow) {
                     onKeyboardStateChangeListener.onKeyboardStateChange(false.also {
                         isKeyboardShow = it
-                    }, pair.second!!)
+                    }, 0)
                 }
             }
         }

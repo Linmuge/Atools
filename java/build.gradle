@@ -1,9 +1,9 @@
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
-apply plugin: 'com.github.dcendents.android-maven'
+/*apply plugin: 'com.github.dcendents.android-maven'
 apply plugin: 'com.jfrog.bintray'
-apply plugin: 'org.jetbrains.dokka'
+apply plugin: 'org.jetbrains.dokka'*/
 
 android {
     compileSdkVersion 29
@@ -32,6 +32,7 @@ android {
 dependencies {
     compileOnly 'androidx.appcompat:appcompat:1.1.0'
 }
+/*
 
 def siteUrl = 'https://github.com/Gushenge/Atools.git' //可选 如果有的话
 
@@ -137,3 +138,4 @@ bintray {
         publish = true
     }
 }
+*/

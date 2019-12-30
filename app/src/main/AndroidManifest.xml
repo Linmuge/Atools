@@ -13,7 +13,7 @@
             android:roundIcon="@mipmap/ic_launcher_round"
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
-        <activity android:name=".activity.util.KeyboardActivity"></activity>
+        <activity android:name=".activity.util.KeyboardActivity" />
         <activity android:name=".activity.ui.RollingTextViewActivity" />
         <activity android:name=".activity.util.ALogActivity" />
         <activity android:name=".activity.util.ASystemActivity" />

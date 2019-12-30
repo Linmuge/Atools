@@ -2,8 +2,10 @@ package com.gushenge.atools.util
 
 import android.app.Activity
 import android.content.Context
+import android.content.res.Resources
 import android.graphics.Color
 import android.os.Build
+import android.provider.Settings
 import android.util.DisplayMetrics
 import android.util.Log
 import android.view.View
@@ -12,6 +14,7 @@ import android.view.WindowManager
 import androidx.annotation.RequiresApi
 import androidx.core.graphics.ColorUtils
 import com.gushenge.atools.dao.AKeys
+
 
 /**
  * @param heightAsPx 需要设置的高度,单位为px
@@ -53,7 +56,7 @@ fun Int.isLightColor(): Boolean {
  * @return Int
  * @description 获取当前状态栏高度,返回值为px
  * */
-fun Activity.getStatusBarHeight(): Int {
+fun Context.getStatusBarHeight(): Int {
     val res = resources
     val resourceId = res.getIdentifier("status_bar_height", "dimen", "android")
     return if (resourceId > 0) res.getDimensionPixelSize(resourceId) else 0
@@ -172,8 +175,8 @@ fun Context.getScreenHeight(): Int {
  * @param context
  * @return
  */
-fun Context.getDisplayScreenHeight(): Int {
-    val windowManager = getSystemService(Context.WINDOW_SERVICE) as WindowManager
+fun Activity.getDisplayScreenHeight(): Int {
+    val windowManager = getWindowManager()
     val display = windowManager.defaultDisplay
     //获取的像素宽高不包含虚拟键所占空间
     val metric = DisplayMetrics()
@@ -200,6 +203,43 @@ fun Context.getDisplayScreenDensity(): Float {
  * @param context
  * @return
  */
-fun Context.getVirtualBarHeight(): Int {
+fun Activity.getVirtualBarHeight(): Int {
     return getScreenHeight() - getDisplayScreenHeight()
+}
+
+/**
+ * 获取需要补充的高度
+ * @param context
+ * @return
+ */
+fun Context.getMiSupplementHeight(): Int {
+    return when (Build.MANUFACTURER) {
+        /*小米手机*/
+        "Xiaomi" -> {
+            when (Build.DEVICE) {
+                /*红米note7Pro*/
+                "violet" -> {
+                    if (Settings.Global.getInt(contentResolver, "force_fsg_nav_bar", 0) != 0) {
+                        //如果虚拟按键没有显示，则需要补充虚拟按键高度到屏幕高度
+                        (getNavigationBarHeight() * 1.5).toInt() + 6
+                    } else {
+                        (getNavigationBarHeight() / 2) + 6
+                    }
+                }
+                else -> 0
+            }
+        }
+        else -> 0
+
+    }
+}
+
+fun Context.getNavigationBarHeight(): Int {
+    val res: Resources = resources
+    val resourceId: Int = res.getIdentifier("navigation_bar_height", "dimen", "android")
+    if (resourceId > 0) {
+        return res.getDimensionPixelSize(resourceId)
+    } else {
+        return 0
+    }
 }
