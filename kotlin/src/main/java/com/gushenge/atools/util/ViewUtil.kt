@@ -14,6 +14,7 @@ import android.view.WindowManager
 import androidx.annotation.RequiresApi
 import androidx.core.graphics.ColorUtils
 import com.gushenge.atools.dao.AKeys
+import java.lang.reflect.Method
 
 
 /**
@@ -176,7 +177,7 @@ fun Context.getScreenHeight(): Int {
  * @return
  */
 fun Activity.getDisplayScreenHeight(): Int {
-    val windowManager = getWindowManager()
+    val windowManager = windowManager
     val display = windowManager.defaultDisplay
     //获取的像素宽高不包含虚拟键所占空间
     val metric = DisplayMetrics()
@@ -198,14 +199,6 @@ fun Context.getDisplayScreenDensity(): Float {
     return metric.density
 }
 
-/**
- * 获取虚拟功能键高度
- * @param context
- * @return
- */
-fun Activity.getVirtualBarHeight(): Int {
-    return getScreenHeight() - getDisplayScreenHeight()
-}
 
 /**
  * 获取需要补充的高度
@@ -221,9 +214,9 @@ fun Context.getMiSupplementHeight(): Int {
                 "violet" -> {
                     if (Settings.Global.getInt(contentResolver, "force_fsg_nav_bar", 0) != 0) {
                         //如果虚拟按键没有显示，则需要补充虚拟按键高度到屏幕高度
-                        (getNavigationBarHeight() * 1.5).toInt() + 6
+                        (getVirtualBarHeight() * 1.5).toInt() + 4
                     } else {
-                        (getNavigationBarHeight() / 2) + 6
+                        (getVirtualBarHeight() / 2) + 4
                     }
                 }
                 else -> 0
@@ -234,12 +227,55 @@ fun Context.getMiSupplementHeight(): Int {
     }
 }
 
-fun Context.getNavigationBarHeight(): Int {
-    val res: Resources = resources
-    val resourceId: Int = res.getIdentifier("navigation_bar_height", "dimen", "android")
-    if (resourceId > 0) {
-        return res.getDimensionPixelSize(resourceId)
-    } else {
-        return 0
+/**
+ * 获取虚拟功能键高度
+ * @param context
+ * @return
+ */
+fun Context.getVirtualBarHeight(): Int {
+    var vh = 0
+    val windowManager = getSystemService(Context.WINDOW_SERVICE) as WindowManager
+    val display = windowManager.defaultDisplay
+    val dm = DisplayMetrics()
+    try {
+        val c = Class.forName("android.view.Display")
+        val method: Method = c.getMethod("getRealMetrics", DisplayMetrics::class.java)
+        method.invoke(display, dm)
+        vh = dm.heightPixels - windowManager.defaultDisplay.height
+    } catch (e: Exception) {
+        e.printStackTrace()
     }
+    return vh
+}
+
+/**
+ * 获取是否存在NavigationBar
+ * @param context
+ * @return
+ */
+fun Context.checkDeviceHasNavigationBar(): Boolean {
+    if (isMiui()) {//小米系统判断虚拟键是否显示方法
+        return Settings.Global.getInt(contentResolver, "force_fsg_nav_bar", 0) == 0
+    } else {
+        var hasNavigationBar = false
+        val rs: Resources = resources
+        val id: Int = rs.getIdentifier("config_showNavigationBar", "bool", "android")
+        if (id > 0) {
+            hasNavigationBar = rs.getBoolean(id)
+        }
+        try {
+            val systemPropertiesClass = Class.forName("android.os.SystemProperties")
+            val m: Method = systemPropertiesClass.getMethod("get", String::class.java)
+            val navBarOverride =
+                m.invoke(systemPropertiesClass, "qemu.hw.mainkeys") as String
+            if ("1" == navBarOverride) {
+                hasNavigationBar = false
+            } else if ("0" == navBarOverride) {
+                hasNavigationBar = true
+            }
+        } catch (e: Exception) {
+        }
+        return hasNavigationBar
+    }
+
 }
