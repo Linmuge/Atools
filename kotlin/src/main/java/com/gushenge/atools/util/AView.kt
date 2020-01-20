@@ -94,8 +94,7 @@ class AView {
          */
         fun setStatusBar(
             context: Activity,
-            isTextColorBlack: Boolean = true,
-            NavigationBarColor: Int = Color.BLACK
+            isTextColorBlack: Boolean = true
         ) {
             if (Build.VERSION.SDK_INT>=Build.VERSION_CODES.LOLLIPOP){
                 val window = context.window
@@ -108,7 +107,6 @@ class AView {
                     decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN or View.SYSTEM_UI_FLAG_LAYOUT_STABLE
                 }
                 window.statusBarColor = Color.TRANSPARENT
-                window.navigationBarColor = NavigationBarColor
                 window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS)
                 window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS)
             }else{

@@ -91,7 +91,7 @@ fun View.setMargins(start: Int, top: Int, end: Int, bottom: Int) {
  * @version 0.2.0
  * @description 动态设置透明状态栏以及状态栏字体颜色
  */
-fun Activity.setStatusBar(isTextColorBlack: Boolean = true, NavigationBarColor: Int = Color.BLACK) {
+fun Activity.setStatusBar(isTextColorBlack: Boolean = true) {
     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
         val window = window
         val decorView = window.decorView
@@ -104,7 +104,6 @@ fun Activity.setStatusBar(isTextColorBlack: Boolean = true, NavigationBarColor: 
                 View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN or View.SYSTEM_UI_FLAG_LAYOUT_STABLE
         }
         window.statusBarColor = Color.TRANSPARENT
-        window.navigationBarColor = NavigationBarColor
         window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS)
         window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS)
     } else {
