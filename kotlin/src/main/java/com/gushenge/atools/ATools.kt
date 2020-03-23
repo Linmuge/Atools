@@ -10,7 +10,8 @@ object ATools {
         this.context = context
         return this
     }
-    fun preference(spName:String){
-        APreference.init(context,spName)
+
+    fun preference(sharedPreferencesName: String) {
+        APreference.init(context, sharedPreferencesName)
     }
 }
