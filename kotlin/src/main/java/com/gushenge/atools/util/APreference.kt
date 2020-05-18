@@ -16,11 +16,13 @@ class APreference<T>(var name: String, var default: T) {
             Companion.spName = spName
         }
     }
-    val prefs: SharedPreferences by lazy { context.getSharedPreferences(spName, Context.MODE_PRIVATE) }
+
+    val prefs: SharedPreferences by lazy {
+        context.getSharedPreferences(spName, Context.MODE_PRIVATE)
+    }
     operator fun getValue(thisRef: Any?, property: KProperty<*>): T = getSharedPreferences(name, default)
 
     operator fun setValue(thisRef: Any?, property: KProperty<*>, value: T) = putSharedPreferences(name, value)
-
 
     private fun putSharedPreferences(name: String, value: T) = with(prefs.edit()) {
         when(value) {
