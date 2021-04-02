@@ -1,18 +1,16 @@
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
-apply plugin: 'com.github.dcendents.android-maven'
-apply plugin: 'com.jfrog.bintray'
 apply plugin: 'org.jetbrains.dokka'
 
 android {
-    compileSdkVersion 29
-    buildToolsVersion '29.0.3'
+    compileSdkVersion 30
+    buildToolsVersion '30.0.3'
 
 
     defaultConfig {
         minSdkVersion 21
-        targetSdkVersion 29
+        targetSdkVersion 30
 
     }
 
@@ -30,114 +28,10 @@ android {
 }
 
 dependencies {
-    compileOnly 'androidx.appcompat:appcompat:1.1.0'
-    compileOnly 'androidx.core:core-ktx:1.3.0-rc01'
-    compileOnly "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
-    compileOnly 'org.jetbrains.anko:anko:0.10.8'
+    compileOnly 'androidx.appcompat:appcompat:1.2.0'
+    compileOnly 'androidx.core:core-ktx:1.6.0-alpha01'
+    compileOnly "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
 }
 repositories {
     mavenCentral()
-}
-def siteUrl = 'https://github.com/Gushenge/Atools.git' //可选 如果有的话
-
-def gitUrl = 'https://github.com/Gushenge/Atools.git' //可选 如果有的话
-
-group = "com.gushenge.atools"  //路径
-version = "0.2.1" //版本名称， 不要用beta，否则容易审核不通过
-
-task sourcesJar(type: Jar) {
-    from android.sourceSets.main.java.srcDirs
-    classifier = 'sources'
-}
-
-task javadoc(type: Javadoc) {
-    source = android.sourceSets.main.java.srcDirs
-    classpath += project.files(android.getBootClasspath().join(File.pathSeparator))
-}
-
-task javadocJar(type: Jar, dependsOn: javadoc) {
-    classifier = 'javadoc'
-    from javadoc.destinationDir
-}
-//同时添加三个方法 for kotlin
-task dokkaJavadoc(type: org.jetbrains.dokka.gradle.DokkaTask) {
-    outputFormat = 'javadoc'
-    outputDirectory = javadoc.destinationDir
-}
-task generateJavadoc(type: Jar, dependsOn: dokkaJavadoc) {
-    group = 'jar'
-    classifier = 'javadoc'
-    from javadoc.destinationDir
-}
-task generateSourcesJar(type: Jar) {
-    group = 'jar'
-    from android.sourceSets.main.java.srcDirs
-    classifier = 'sources'
-}
-
-task copyDoc(type: Copy) {
-    from "${buildDir}/docs/"
-    into "docs"
-}
-
-//for java only
-//artifacts {
-//    archives javadocJar
-//    archives sourcesJar
-//}
-//for kotlin
-artifacts {
-    archives generateJavadoc //javadocJar
-    archives generateSourcesJar //sourcesJar
-}
-
-
-install {
-    repositories.mavenInstaller {
-        // This generates POM.xml with proper parameters
-        pom {
-            project {
-                packaging 'aar'
-                name 'is permission tool for android'
-                url siteUrl
-                licenses {
-                    license {
-                        name 'The Apache Software License, Version 2.0'
-                        url 'http://www.apache.org/licenses/LICENSE-2.0.txt'
-                    }
-                }
-                developers {
-                    developer {
-                        id 'gzyyu' //用户名
-                        name 'Gushenge' //姓名
-                        email '1206083231@qq.com' //邮箱
-                    }
-                }
-                scm {
-                    connection gitUrl
-                    developerConnection gitUrl
-                    url siteUrl
-                }
-            }
-        }
-    }
-}
-
-Properties properties = new Properties()
-properties.load(project.rootProject.file('local.properties').newDataInputStream())
-
-bintray {
-    //关键信息我们从localProperties文件中读取
-    user = properties.getProperty("bintray.user")
-    key = properties.getProperty("bintray.apikey")
-    configurations = ['archives']
-    pkg {
-        repo = "ATools" // 仓库名
-        name = "kotlin"// 包名
-        desc = 'some android tools'
-        websiteUrl = siteUrl
-        vcsUrl = gitUrl
-        licenses = ["Apache-2.0"]
-        publish = true
-    }
 }
