@@ -13,27 +13,27 @@
             android:layout_height="wrap_content" />
 
     <com.gushenge.atools.ui.ArcButton
-            android:id="@+id/btGithub"
+            android:id="@+id/arcButton"
             android:layout_width="match_parent"
             android:layout_height="45dp"
-            android:text="GitHub"
+            android:text="点我查看圆角半径"
             android:textAllCaps="false"
             android:layout_marginTop="10dp"
             android:layout_marginHorizontal="20dp" />
 
-    <com.gushenge.atools.ui.ArcButton
-            android:id="@+id/btGitee"
+    <androidx.appcompat.widget.AppCompatSeekBar
+            android:id="@+id/seekbar"
             android:layout_width="match_parent"
             android:layout_height="45dp"
-            android:text="码云"
+            android:max="23"
             android:layout_marginTop="10dp"
             android:layout_marginHorizontal="20dp" />
 
-    <com.gushenge.atools.ui.ArcButton
-            android:id="@+id/btBlog"
+    <TextView
+            android:id="@+id/tvInfo"
             android:layout_width="match_parent"
             android:layout_height="45dp"
-            android:text="个人博客"
+            android:textAllCaps="false"
             android:layout_marginTop="10dp"
             android:layout_marginHorizontal="20dp" />
 </LinearLayout>

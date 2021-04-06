@@ -12,28 +12,27 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
+    <EditText
+            android:id="@+id/etLink"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="20dp"
+            android:hint="请输入可用的图片链接地址" />
+
     <com.gushenge.atools.ui.ArcButton
-            android:id="@+id/btGithub"
+            android:id="@+id/btLoadNetworkImage"
             android:layout_width="match_parent"
             android:layout_height="45dp"
-            android:text="GitHub"
+            android:text="从网络加载图片"
             android:textAllCaps="false"
             android:layout_marginTop="10dp"
             android:layout_marginHorizontal="20dp" />
 
-    <com.gushenge.atools.ui.ArcButton
-            android:id="@+id/btGitee"
+    <com.gushenge.atools.ui.AutoHeightImage
+            android:id="@+id/ivImage"
             android:layout_width="match_parent"
-            android:layout_height="45dp"
-            android:text="码云"
-            android:layout_marginTop="10dp"
-            android:layout_marginHorizontal="20dp" />
-
-    <com.gushenge.atools.ui.ArcButton
-            android:id="@+id/btBlog"
-            android:layout_width="match_parent"
-            android:layout_height="45dp"
-            android:text="个人博客"
-            android:layout_marginTop="10dp"
-            android:layout_marginHorizontal="20dp" />
+            android:layout_height="wrap_content"
+            android:src="@drawable/autoimage"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginTop="10dp" />
 </LinearLayout>

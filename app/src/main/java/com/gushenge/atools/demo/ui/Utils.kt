@@ -1,7 +1,11 @@
 import android.content.ActivityNotFoundException
 import android.content.Context
 import android.content.Intent
+import android.graphics.Color
 import android.net.Uri
+import com.gushenge.atools.ui.ArcButton
+import com.gushenge.atools.util.ARandom
+import com.gushenge.atools.util.AView
 
 fun Context.browse(url: String, newTask: Boolean = false): Boolean {
     try {
@@ -17,3 +21,12 @@ fun Context.browse(url: String, newTask: Boolean = false): Boolean {
         return false
     }
 }
+
+
+fun ArcButton.initColor(): ArcButton {
+    val color = ARandom.color()
+    setTextColor(if (AView.isLightColor(color)) Color.BLACK else Color.WHITE)
+    setBackgroundColor(color)
+    return this
+}
+

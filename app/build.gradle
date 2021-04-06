@@ -1,6 +1,6 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
-apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
 
 android {
     compileSdkVersion 30
@@ -28,6 +28,10 @@ android {
             resValue("string", "app_name", appName)
         }
     }
+    buildFeatures{
+        dataBinding = true
+        viewBinding = true
+    }
     compileOptions {
         sourceCompatibility = '1.8'
         targetCompatibility = '1.8'
@@ -36,7 +40,6 @@ android {
 
 dependencies {
     implementation 'androidx.appcompat:appcompat:1.2.0'
-    implementation"org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
     implementation 'androidx.constraintlayout:constraintlayout:2.1.0-beta01'
     implementation 'androidx.core:core-ktx:1.6.0-alpha01'
     implementation project(path: ':kotlin')

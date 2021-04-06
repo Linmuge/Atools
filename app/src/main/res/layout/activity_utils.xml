@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:minHeight="45dp"
+        android:orientation="vertical"
+        android:background="@color/white">
+
+    <include
+            layout="@layout/titleview"
+            android:id="@+id/titleView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+    <com.gushenge.atools.ui.ArcButton
+            android:id="@+id/btADate"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:text="时间日期工具类 - ADate"
+            android:textAllCaps="false"
+            android:layout_marginTop="10dp"
+            android:layout_marginHorizontal="20dp" />
+
+    <com.gushenge.atools.ui.ArcButton
+            android:id="@+id/btARandom"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:text="随机工具类 - ARandom"
+            android:textAllCaps="false"
+            android:layout_marginTop="10dp"
+            android:layout_marginHorizontal="20dp" />
+
+    <com.gushenge.atools.ui.ArcButton
+            android:id="@+id/btAView"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:text="视图工具类 - AView"
+            android:textAllCaps="false"
+            android:layout_marginTop="10dp"
+            android:layout_marginHorizontal="20dp" />
+
+    <com.gushenge.atools.ui.ArcButton
+            android:id="@+id/btASystem"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:text="系统工具类 - ASystem"
+            android:textAllCaps="false"
+            android:layout_marginTop="10dp"
+            android:layout_marginHorizontal="20dp" />
+
+    <com.gushenge.atools.ui.ArcButton
+            android:id="@+id/btKeyboard"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:text="键盘监听"
+            android:textAllCaps="false"
+            android:layout_marginTop="10dp"
+            android:layout_marginHorizontal="20dp" />
+
+    <com.gushenge.atools.ui.ArcButton
+            android:id="@+id/btAPreference"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:text="SharedPreferences工具类 - APreference"
+            android:textAllCaps="false"
+            android:layout_marginTop="10dp"
+            android:layout_marginHorizontal="20dp" />
+</LinearLayout>

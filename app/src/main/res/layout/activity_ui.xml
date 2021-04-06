@@ -13,27 +13,29 @@
             android:layout_height="wrap_content" />
 
     <com.gushenge.atools.ui.ArcButton
-            android:id="@+id/btGithub"
+            android:id="@+id/btAutoHeightImageView"
             android:layout_width="match_parent"
             android:layout_height="45dp"
-            android:text="GitHub"
+            android:text="宽度固定高度自适应的ImageView - AutoHeightImage"
             android:textAllCaps="false"
             android:layout_marginTop="10dp"
             android:layout_marginHorizontal="20dp" />
 
     <com.gushenge.atools.ui.ArcButton
-            android:id="@+id/btGitee"
+            android:id="@+id/btArcButton"
             android:layout_width="match_parent"
             android:layout_height="45dp"
-            android:text="码云"
+            android:text="自定义圆角的Button - ArcButton"
+            android:textAllCaps="false"
             android:layout_marginTop="10dp"
             android:layout_marginHorizontal="20dp" />
 
     <com.gushenge.atools.ui.ArcButton
-            android:id="@+id/btBlog"
+            android:id="@+id/btRollTextView"
             android:layout_width="match_parent"
             android:layout_height="45dp"
-            android:text="个人博客"
+            android:text="滚动动效的textview - RollTextView"
+            android:textAllCaps="false"
             android:layout_marginTop="10dp"
             android:layout_marginHorizontal="20dp" />
 </LinearLayout>
