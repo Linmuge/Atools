@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:minHeight="45dp"
+        android:orientation="vertical"
+        android:background="@color/white">
+
+    <include
+            layout="@layout/titleview"
+            android:id="@+id/titleView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+    <com.gushenge.atools.ui.RollingTextView
+            android:id="@+id/rollingTextView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:textSize="20sp"
+            android:textColor="@color/black"
+            app:textType="num"
+            app:frameNum="120"
+            android:gravity="center" />
+</LinearLayout>
